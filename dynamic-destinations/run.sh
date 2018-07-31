@@ -11,9 +11,9 @@ TABLE=$3
 
 echo "Project: $PROJECT, Bucket: $BUCKET, Table: $TABLE"
 
-# sudo pip install lorem
-# python generate.py
-# gsutil cp input.csv gs://$BUCKET
+sudo pip install lorem
+python generate.py
+gsutil cp input.csv gs://$BUCKET
 
 export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin/:$PATH
 mvn compile -e exec:java \
