@@ -9,7 +9,7 @@ Disclaimer: example modified from base code [here](https://github.com/GoogleClou
 
 You can use the provided `run.sh` script (don't forget to add execution permissions `chmod +x run.sh`) as in:
 ```
-./run.sh <DATAFLOW_PROJECT_ID> <BUCKET_NAME(no gs://)> <PUB/SUB_INPUT_TOPIC> <BIGQUERY_PROJECT_ID:DATASET.TABLE_PREFIX>
+./run.sh <DATAFLOW_PROJECT_ID> <BUCKET_NAME> <PUB/SUB_INPUT_TOPIC> <BIGQUERY_PROJECT_ID:DATASET.TABLE>
 ```
 
 Alternatively, follow these steps:
@@ -63,7 +63,7 @@ After the 10min window is closed (`FixedWindows.of(Duration.standardMinutes(10))
 
 ## Shutdown
 
-The publish script will go on for approximately 50min. Be sure to interrupt it (`CTRL+C`) or adjust the number of messages to something lower than 600 if needed.
+The publish script will go on for approximately 50min. Be sure to interrupt it (`CTRL+C`) or adjust the number of messages to something lower than 600, if needed.
 
 As a streaming job this will run until we issue the drain/cancel command. You can do so using the UI, the API, Client libraries or the `gcloud` command, for example (you might need to account for the `region` if specified at runtime):
 ```
