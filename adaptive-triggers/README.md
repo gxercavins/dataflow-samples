@@ -8,14 +8,14 @@ Disclaimer: example modified from base code [here](https://github.com/GoogleClou
 ## Quickstart
 
 You can use the provided `run.sh` script (don't forget to add execution permissions `chmod +x run.sh`) as in:
-```
+``` bash
 ./run.sh <DATAFLOW_PROJECT_ID> <BUCKET_NAME> <PUB/SUB_INPUT_TOPIC> <BIGQUERY_PROJECT_ID:DATASET.TABLE>
 ```
 
 Alternatively, follow these steps:
 * Set up [authentication](https://cloud.google.com/docs/authentication/) your preferred way 
 * Set the `$PROJECT`, `$BUCKET`, `$TOPIC` and `$TABLE` variables and run the Dataflow job:
-```
+``` bash
 mvn compile -e exec:java \
  -Dexec.mainClass=com.dataflow.samples.AdaptiveTriggers \
       -Dexec.args="--project=$PROJECT \
@@ -34,7 +34,7 @@ This code was tested with Java SDK 2.5.0.
 ## Example
 
 The main idea is to use `c.pane().getIndex()` in `processElement` inside the ParDo. We assign this value to a variable named `index` and we'll call `c.output()` for the first six panes (`index < 6`) and, past that, only for 1-out-of-6 panes (`index % 6 == 0`). We'll also record the Pane timing (`EARLY`, `ON_TIME` or `LATE`):
-```
+``` java
 .apply("ToBQRow", ParDo.of(new DoFn<Integer, TableRow>() {
 				@ProcessElement
 				public void processElement(ProcessContext c) throws Exception {
@@ -66,7 +66,7 @@ After the 10min window is closed (`FixedWindows.of(Duration.standardMinutes(10))
 The publish script will go on for approximately 50min. Be sure to interrupt it (`CTRL+C`) or adjust the number of messages to something lower than 600, if needed.
 
 As a streaming job this will run until we issue the drain/cancel command. You can do so using the UI, the API, Client libraries or the `gcloud` command, for example (you might need to account for the `region` if specified at runtime):
-```
+``` bash
 gcloud dataflow jobs cancel $(gcloud dataflow jobs list | grep -m 1 adaptivetriggers | cut -f 1 -d " ")
 ```
 
