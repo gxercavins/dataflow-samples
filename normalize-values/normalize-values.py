@@ -40,7 +40,7 @@ def run(argv=None):
   p = beam.Pipeline(options=pipeline_options)
 
   # create test data
-  pc = [('foo', 1), ('bar', 5), ('foo', 5), ('bar', 9), ('bar', 2)]
+  pc = p | 'Create' >> beam.Create([('foo', 1), ('bar', 5), ('foo', 5), ('bar', 9), ('bar', 2)])
 
   # first run through data to apply custom combineFn and determine min/max per key
   minmax = pc | 'Determine Min Max' >> beam.CombinePerKey(MinMaxFn())
@@ -55,7 +55,7 @@ def run(argv=None):
   normalized | 'Write results' >> WriteToText(known_args.output)
 
   result = p.run()
-  result.wait_until_finish()
+  # result.wait_until_finish()
 
 if __name__ == '__main__':
   logging.getLogger().setLevel(logging.INFO)
