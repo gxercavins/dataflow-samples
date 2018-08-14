@@ -5,7 +5,7 @@ The `DynamicDestinations` class allows you to write to different BigQuery tables
 ## Quickstart
 
 You can use the provided `run.sh` script (don't forget to add execution permissions `chmod +x run.sh`) as in:
-```
+``` bash
 ./run.sh <DATAFLOW_PROJECT_ID> <BUCKET_NAME(no gs://)> <BIGQUERY_PROJECT_ID>:<DATASET>.<TABLE_PREFIX>
 ```
 
@@ -15,7 +15,7 @@ Alternatively, follow these steps:
 * Set up [authentication](https://cloud.google.com/docs/authentication/) your preferred way 
 * Set the `$BUCKET` variable (`export BUCKET=BUCKET_NAME`) and upload the file: `gsutil cp input.csv gs://$BUCKET`
 * Set the `$PROJECT` and `$TABLE` variables too and run the Dataflow job:
-```
+``` bash
 mvn compile -e exec:java \
  -Dexec.mainClass=com.dataflow.samples.WriteToDifferentTables \
       -Dexec.args="--project=$PROJECT \
@@ -34,7 +34,7 @@ This was tested with Java SDK 2.5.0.
 
 Input data will have varying number of String fields with a first column indicating the number. Quick file preview:
 
-```
+``` bash
 $ head input.csv 
 "3,Dolor,tempora,ipsum"
 "1,Voluptatem"
