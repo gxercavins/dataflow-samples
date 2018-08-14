@@ -14,6 +14,8 @@ Currently, there are three examples available:
 * **Dynamic destinations (Java)**: write dynamically to different BigQuery tables according to the schema of the processed record.
 * **Normalize values (Python)**: normalize all PCollection values after calculating the maximum and minimum per each key.
 
+In addition, the `utils` folder contains simple Dataflow snippets.
+
 ## License
 
 These examples are provided under the Apache License 2.0.
