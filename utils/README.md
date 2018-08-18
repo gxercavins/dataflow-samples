@@ -8,7 +8,9 @@ Each folder contains specific instructions for the corresponding example.
 
 ## Examples
 
+* **BigQuery Null values (Java)**: how to write records with `Null` values to BigQuery using Dataflow.
 * **Stop Job (Python)**: how to programmatically stop a Dataflow job using the Python Google API Client Library.
+* **Understanding Wall Time (Java)**: quick idea to visualize wall time.
 
 ## License
 
