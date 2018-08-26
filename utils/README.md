@@ -10,6 +10,7 @@ Each folder contains specific instructions for the corresponding example.
 
 * **Add Labels (Java)**: how to add labels (in code) to the job in order to track expenses in the Billing Export.
 * **BigQuery Null values (Java)**: how to write records with `Null` values to BigQuery using Dataflow.
+* **Input Filenames (Java)**: how to process files according to their format (i.e. CSV or XML).
 * **Stop Job (Python)**: how to programmatically stop a Dataflow job using the Python Google API Client Library.
 * **Understanding Wall Time (Java)**: quick idea to visualize wall time.
 
