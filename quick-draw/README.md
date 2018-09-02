@@ -1,6 +1,6 @@
 # 'Quick, Draw!' Dataset Playground
 
-The main idea of this example is to use Dataflow to explore the [Quick, Draw!](https://towardsdatascience.com/quick-draw-the-worlds-largest-doodle-dataset-823c22ffce6b)dataset. This is a Google initiative to collect user-made doodles belonging to different categories such as places, animals, etc. It can be accessed through the [GitHub page](https://github.com/googlecreativelab/quickdraw-dataset) and it's also hosted on a public [GCS Bucket](https://console.cloud.google.com/storage/browser/quickdraw_dataset). Projects revolving around this dataset have been focused on Machine Learning and trying to predict what is being sketched (see the game [here](https://quickdraw.withgoogle.com/#)). In our case, we are going to focus on the [owl drawings'](https://quickdraw.withgoogle.com/data/owl) raw data, convert them to images and save them in `png` format (147,654 files). We'll use the Python SDK for the convenience to use libraries such as `json` or `Pillow`.
+The main idea of this example is to use Dataflow to explore the [Quick, Draw!](https://towardsdatascience.com/quick-draw-the-worlds-largest-doodle-dataset-823c22ffce6b) dataset. This is a Google initiative to collect user-made doodles belonging to different categories such as places, animals, etc. It can be accessed through the [GitHub page](https://github.com/googlecreativelab/quickdraw-dataset) and it's also hosted on a public [GCS Bucket](https://console.cloud.google.com/storage/browser/quickdraw_dataset). Projects revolving around this dataset have been focused on Machine Learning and trying to predict what is being sketched (see the game [here](https://quickdraw.withgoogle.com/#)). In our case, we are going to focus on the [owl drawings'](https://quickdraw.withgoogle.com/data/owl) raw data, convert them to images and save them in `png` format (147,654 files). We'll use the Python SDK for the convenience to use libraries such as `json` or `Pillow`.
 
 ![screenshot from 2018-09-02 20-16-55](https://user-images.githubusercontent.com/29493411/44959774-8fa4de00-aef4-11e8-9516-448117a52ebc.png)
 
@@ -30,8 +30,25 @@ gsutil cat gs://quickdraw_dataset/full/simplified/owl.ndjson | head -n 1
 ```
 
 This will return the following:
+
 ```json
-{"word":"owl","countrycode":"US","timestamp":"2017-03-04 23:38:44.30111 UTC","recognized":true,"key_id":"6329943778656256","drawing":[[[56,30,9,0,4,15,26,62,94,111,118,143,152,149,143,129,108,86,68,46,33,28],[19,29,51,75,106,133,143,151,149,144,139,102,66,34,24,14,5,0,1,7,16,25]],[[45,32,26,26,36,47,56,65,69,64,56,37,30,30],[45,53,67,90,100,101,95,79,59,48,42,37,37,40]],[[109,92,83,82,88,96,112,122,125,121,112],[45,57,71,87,101,104,101,87,55,46,48]],[[66,73,69,67],[97,98,108,99]],[[47,47,51,51,46,43,47,50,45,42,44,48,48],[67,71,70,66,68,76,76,69,68,71,75,75,69]],[[107,100,101,105,110,108,103,102,106,107,105],[69,74,78,80,74,70,75,78,78,73,77]],[[38,20,14,4],[14,10,28,40]],[[128,141,151,150],[13,0,19,37]],[[49,41,50,65,85,98,117,132,144,153,152,143,137,120],[150,193,226,239,250,255,254,249,236,194,164,142,134,132]]]}
+{
+    "word":"owl",
+    "countrycode":"US",
+    "timestamp":"2017-03-04 23:38:44.30111 UTC",
+    "recognized":true,"key_id":"6329943778656256",
+    "drawing":[
+        [[56,30,9,0,4,15,26,62,94,111,118,143,152,149,143,129,108,86,68,46,33,28],[19,29,51,75,106,133,143,151,149,144,139,102,66,34,24,14,5,0,1,7,16,25]],
+        [[45,32,26,26,36,47,56,65,69,64,56,37,30,30],[45,53,67,90,100,101,95,79,59,48,42,37,37,40]],
+        [[109,92,83,82,88,96,112,122,125,121,112],[45,57,71,87,101,104,101,87,55,46,48]],
+        [[66,73,69,67],[97,98,108,99]],
+        [[47,47,51,51,46,43,47,50,45,42,44,48,48],[67,71,70,66,68,76,76,69,68,71,75,75,69]],
+        [[107,100,101,105,110,108,103,102,106,107,105],[69,74,78,80,74,70,75,78,78,73,77]],
+        [[38,20,14,4],[14,10,28,40]],
+        [[128,141,151,150],[13,0,19,37]],
+        [[49,41,50,65,85,98,117,132,144,153,152,143,137,120],[150,193,226,239,250,255,254,249,236,194,164,142,134,132]]
+    ]
+}
 ```
 
 `word` will be owl in all our examples. We also have the `countrycode` and `timestamp`, which could be used in conjunction with `recognized` to compare drawing skills across countries or along time. `key_id` will be the unique identifier of each drawing, which is presented as an array of strokes in the `drawing` field. For additional details, format is described [here](https://github.com/googlecreativelab/quickdraw-dataset#the-raw-moderated-dataset).
