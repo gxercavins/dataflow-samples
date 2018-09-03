@@ -32,11 +32,12 @@ This code was tested with Java SDK 2.5.0.
 
 WIP
 
-![screenshot from 2018-09-03 21-17-41](https://user-images.githubusercontent.com/29493411/44999634-1b833c80-afbf-11e8-8fe4-e22f132f6d95.png)
+![screenshot from 2018-09-03 21-27-35](https://user-images.githubusercontent.com/29493411/44999848-8bde8d80-afc0-11e8-8e65-0be3c62dc8ec.png)
 
 ## Next Steps
 
 * Finish readme
+* Add comments to text
 * Use a side output to divert logging while grouped elements continue down the pipeline
 * Define option to toggle on and off Stackdriver Logging and BigQuery Writes
 * If possible, use generic types
