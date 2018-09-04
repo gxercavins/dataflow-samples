@@ -52,6 +52,7 @@ public class LogGBK {
     void setInput(String s);
   }
 
+  // function that will log info about grouped data
   static class LoggingFn extends DoFn<KV<String,Iterable<String>>,TableRow> {
     @ProcessElement
     public void processElement(ProcessContext c, BoundedWindow window) {
@@ -82,11 +83,12 @@ public class LogGBK {
   public static void main(String[] args) {
     
     MyOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(MyOptions.class);
-    //options.setStreaming(true);
+    options.setStreaming(true);
     
     // Overrides the default log level on the worker to emit logs at TRACE or higher.
-    //DataflowWorkerLoggingOptions loggingOptions = options.as(DataflowWorkerLoggingOptions.class);
-    //loggingOptions.setDefaultWorkerLogLevel(Level.TRACE);
+    // Uncomment the following two lines (and the two additional imports) if needed but beware of log verbosity
+    // DataflowWorkerLoggingOptions loggingOptions = options.as(DataflowWorkerLoggingOptions.class);
+    // loggingOptions.setDefaultWorkerLogLevel(Level.TRACE);
      
     Pipeline p = Pipeline.create(options);
 
@@ -106,18 +108,18 @@ public class LogGBK {
     TableSchema schema = new TableSchema().setFields(fields);
     LOG.info("Starting job");
 
-    p //
-        .apply("GetMessages", PubsubIO.readStrings().fromTopic(topic)) //
+    p
+        .apply("GetMessages", PubsubIO.readStrings().fromTopic(topic))
         .apply("window",
-            Window.<String>into(FixedWindows //
-                .of(Duration.standardMinutes(1))) //
+            Window.<String>into(FixedWindows
+                .of(Duration.standardMinutes(1)))
                 .triggering(
                       AfterWatermark.pastEndOfWindow()
                           .withLateFirings(AfterProcessingTime
                              .pastFirstElementInPane()))
                 .withAllowedLateness(Duration.standardMinutes(1))
-                .accumulatingFiredPanes()) //
-        //will just use first word in sentence as key
+                .accumulatingFiredPanes())
+        // we'll just use the first word in the Pub/Sub message as the key
         .apply("Create Keys", ParDo.of(new DoFn<String, KV<String,String>>() {
             @ProcessElement
             public void processElement(ProcessContext c, BoundedWindow window) {
@@ -125,8 +127,8 @@ public class LogGBK {
               c.output(KV.of(c.element().split(" ")[0],c.element()));
           }
         }))
-        .apply("Group By Key", GroupByKey.<String,String>create())
-        .apply(ParDo.of(new LoggingFn()))           
+        .apply("Group By Key", GroupByKey.<String,String>create())    // grouping by key (and 1-min windows)
+        .apply(ParDo.of(new LoggingFn()))                             // calling the logging ParDo      
         .apply(BigQueryIO.writeTableRows().to(output)//
             .withSchema(schema)//
             .withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND)

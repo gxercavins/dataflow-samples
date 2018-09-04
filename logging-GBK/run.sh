@@ -22,3 +22,7 @@ mvn compile -e exec:java \
       --output=$TABLE \
       --runner=DataflowRunner"
 
+sudo pip install google-cloud-pubsub
+echo "Sleeping for 120s while job starts before publishing messages to topic"
+sleep 120
+python publish.py $PROJECT publish $TOPIC
