@@ -123,7 +123,6 @@ public class LogGBK {
         .apply("Create Keys", ParDo.of(new DoFn<String, KV<String,String>>() {
             @ProcessElement
             public void processElement(ProcessContext c, BoundedWindow window) {
-              LOG.info("New element into pipeline");
               c.output(KV.of(c.element().split(" ")[0],c.element()));
           }
         }))

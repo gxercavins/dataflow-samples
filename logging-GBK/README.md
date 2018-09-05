@@ -14,7 +14,7 @@ Alternatively, follow these steps:
 * Set the `$PROJECT`, `$BUCKET`, `$TOPIC` and `$TABLE` variables and run the Dataflow job:
 ``` bash
 mvn compile -e exec:java \
- -Dexec.mainClass=com.dataflow.samples.AdaptiveTriggers \
+ -Dexec.mainClass=com.dataflow.samples.LogGBK \
       -Dexec.args="--project=$PROJECT \
       --stagingLocation=gs://$BUCKET/staging/ \
       --tempLocation=gs://$BUCKET/staging/ \
