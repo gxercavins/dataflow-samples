@@ -61,7 +61,7 @@ pipeline_options.view_as(SetupOptions).save_main_session = True
 
 Now they can be accessed from the aforementioned step:
 
-[image](https://i.stack.imgur.com/bze3Y.png)
+![image](https://i.stack.imgur.com/bze3Y.png)
 
 ## License
 
