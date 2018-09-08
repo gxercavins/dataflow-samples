@@ -23,6 +23,9 @@ import org.apache.beam.sdk.transforms.windowing.Window;
 import org.apache.beam.sdk.transforms.windowing.AfterProcessingTime;
 import org.apache.beam.sdk.transforms.windowing.AfterWatermark;
 import org.apache.beam.sdk.transforms.GroupByKey;
+import org.apache.beam.sdk.values.PCollectionTuple;
+import org.apache.beam.sdk.values.TupleTag;
+import org.apache.beam.sdk.values.TupleTagList;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 import java.util.concurrent.TimeUnit;
@@ -43,47 +46,76 @@ public class LogGBK {
   public static interface MyOptions extends PipelineOptions {
     @Description("Output BigQuery table <project_id>:<dataset_id>.<table_id>")
     String getOutput();
-
     void setOutput(String s);
 
     @Description("Input topic")
-    String getInput();
-    
+    String getInput();    
     void setInput(String s);
+
+    @Description("Output BigQuery table <project_id>:<dataset_id>.<table_id>")
+    @Default.Boolean(true)
+    Boolean getStackdriver();
+    void setStackdriver(Boolean s);
+
+    @Description("Output BigQuery table <project_id>:<dataset_id>.<table_id>")
+    @Default.Boolean(true)
+    Boolean getBigquery();
+    void setBigquery(Boolean s);
   }
 
-  // function that will log info about grouped data
-  static class LoggingFn extends DoFn<KV<String,Iterable<String>>,TableRow> {
-    @ProcessElement
-    public void processElement(ProcessContext c, BoundedWindow window) {
-      TableRow row = new TableRow();
-      PaneInfo pane = c.pane();
-      Integer key = c.element().getKey().hashCode(); //hashed for data privacy
-      Iterable<String> values = c.element().getValue();
-      Date date= new Date();
-      Long time = date.getTime();
-      String processingTime = new Instant(time).toString();
-      String eventTime = c.timestamp().toString();
-      String logString = String.format("key=%s, numElements=%d, window=%s, Pane: [isFirst=%s, isLast=%s, timing=%s], eventTime=%s, processingTime=%s", key, Iterators.size(values.iterator()), window.toString(), pane.isFirst(), pane.isLast(), pane.getTiming(), eventTime, processingTime);
-      LOG.info(logString);
+  // create tags for the main and side output to write logged elements to BigQuery
+  public static final TupleTag<KV<String,Iterable<String>>> mainOutputTag = new TupleTag<KV<String,Iterable<String>>>(){};
+  public static final TupleTag<TableRow> logToBigQueryTag = new TupleTag<TableRow>(){};
 
-      row.set("Key", key);
-      row.set("NumberOfElements", Iterators.size(values.iterator()));
-      row.set("Window", window.toString());              
-      row.set("PaneIsFirst", pane.isFirst());
-      row.set("PaneIsLast", pane.isLast());
-      row.set("PaneTiming", pane.getTiming());
-      row.set("EventTime", eventTime);
-      row.set("ProcessingTime", processingTime);
-      c.output(row);
-    }
+  // function that will log info about grouped data
+  static class LoggingFn extends DoFn<KV<String,Iterable<String>>,KV<String,Iterable<String>>> {
+      // access options to enable/disable Stackdriver Logging and BigQuery
+      private final Boolean stackdriver;
+      private final Boolean bigquery;
+      public LoggingFn(Boolean stackdriver, Boolean bigquery) {
+          this.stackdriver = stackdriver;
+          this.bigquery = bigquery;
+      }
+      @ProcessElement
+      public void processElement(ProcessContext c, BoundedWindow window, MultiOutputReceiver r) {
+          TableRow row = new TableRow();
+          PaneInfo pane = c.pane();
+          Integer key = c.element().getKey().hashCode();    // hashed for data privacy
+          Iterable<String> values = c.element().getValue();
+          Date date= new Date();
+          Long time = date.getTime();
+          String processingTime = new Instant(time).toString();
+          String eventTime = c.timestamp().toString();
+          
+          // if enabled, log entries to Stackdriver Logging
+          if (stackdriver) {
+              String logString = String.format("key=%s, numElements=%d, window=%s, Pane: [isFirst=%s, isLast=%s, timing=%s], eventTime=%s, processingTime=%s", key, Iterators.size(values.iterator()), window.toString(), pane.isFirst(), pane.isLast(), pane.getTiming(), eventTime, processingTime);
+              LOG.info(logString);
+          }
+
+          // if enabled, divert log entries to BigQuery using a side output
+          if (bigquery) {
+              row.set("Key", key);
+              row.set("NumberOfElements", Iterators.size(values.iterator()));
+              row.set("Window", window.toString());              
+              row.set("PaneIsFirst", pane.isFirst());
+              row.set("PaneIsLast", pane.isLast());
+              row.set("PaneTiming", pane.getTiming());
+              row.set("EventTime", eventTime);
+              row.set("ProcessingTime", processingTime);
+
+              r.get(logToBigQueryTag).output(row);
+          }
+          
+          r.get(mainOutputTag).output(c.element());
+      }
   }
 
   @SuppressWarnings("serial")
   public static void main(String[] args) {
     
     MyOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(MyOptions.class);
-    options.setStreaming(true);
+    //options.setStreaming(true);
     
     // Overrides the default log level on the worker to emit logs at TRACE or higher.
     // Uncomment the following two lines (and the two additional imports) if needed but beware of log verbosity
@@ -94,6 +126,8 @@ public class LogGBK {
 
     String topic = options.getInput();
     String output = options.getOutput();
+    Boolean stackdriver = options.getStackdriver();
+    Boolean bigquery = options.getBigquery();
 
     // Build the table schema for the output table.
     List<TableFieldSchema> fields = new ArrayList<>();
@@ -106,11 +140,10 @@ public class LogGBK {
     fields.add(new TableFieldSchema().setName("EventTime").setType("STRING"));
     fields.add(new TableFieldSchema().setName("ProcessingTime").setType("STRING"));
     TableSchema schema = new TableSchema().setFields(fields);
-    LOG.info("Starting job");
 
-    p
-        .apply("GetMessages", PubsubIO.readStrings().fromTopic(topic))
-        .apply("window",
+    PCollectionTuple results = p
+        .apply("Get Messages", PubsubIO.readStrings().fromTopic(topic))
+        .apply("Window",
             Window.<String>into(FixedWindows
                 .of(Duration.standardMinutes(1)))
                 .triggering(
@@ -122,16 +155,31 @@ public class LogGBK {
         // we'll just use the first word in the Pub/Sub message as the key
         .apply("Create Keys", ParDo.of(new DoFn<String, KV<String,String>>() {
             @ProcessElement
-            public void processElement(ProcessContext c, BoundedWindow window) {
+            public void processElement(ProcessContext c) {
               c.output(KV.of(c.element().split(" ")[0],c.element()));
           }
         }))
         .apply("Group By Key", GroupByKey.<String,String>create())    // grouping by key (and 1-min windows)
-        .apply(ParDo.of(new LoggingFn()))                             // calling the logging ParDo      
-        .apply(BigQueryIO.writeTableRows().to(output)//
-            .withSchema(schema)//
-            .withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND)
-            .withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_IF_NEEDED));
+        // calling the logging ParDo  
+        .apply("Log Info", ParDo.of(new LoggingFn(stackdriver, bigquery))
+                    .withOutputTags(mainOutputTag, TupleTagList.of(logToBigQueryTag)));
+
+        // write logged elements to BigQuery destination table
+        results.get(logToBigQueryTag)
+            .apply("Write Logs", BigQueryIO.writeTableRows().to(output)
+                .withSchema(schema)
+                .withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND)
+                .withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_IF_NEEDED));
+
+        // continue processing main output...
+        results.get(mainOutputTag)
+            .apply("Continue Processing", ParDo.of(new DoFn<KV<String,Iterable<String>>, Void>() {
+                @ProcessElement
+                public void processElement(ProcessContext c) {
+                    LOG.info("New element in main output");
+                    // do something
+                    // ...
+            }})); 
 
     p.run();
   }
