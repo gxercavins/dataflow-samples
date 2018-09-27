@@ -120,7 +120,7 @@ Some of the resulting images after downloading them from the bucket:
 
 ## License
 
-This examples is provided under the Apache License 2.0.
+This example is provided under the Apache License 2.0.
 
 ## Issues
 
