@@ -52,12 +52,12 @@ public class LogGBK {
     String getInput();    
     void setInput(String s);
 
-    @Description("Output BigQuery table <project_id>:<dataset_id>.<table_id>")
+    @Description("Option to enable or disable logging to Stackdriver: true (default) or false")
     @Default.Boolean(true)
     Boolean getStackdriver();
     void setStackdriver(Boolean s);
 
-    @Description("Output BigQuery table <project_id>:<dataset_id>.<table_id>")
+    @Description("Option to enable or disable logging to BigQuery: true (default) or false")
     @Default.Boolean(true)
     Boolean getBigquery();
     void setBigquery(Boolean s);
