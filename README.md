@@ -17,7 +17,7 @@ Currently, there are three examples available:
 * **Quick, Draw! dataset (Python)**: download raw data from a public dataset, convert to images and save them in `png` format.
 * **With Timestamps (Java)**: assign processing time as element timestamp and shift to the past if needed.
 
-In addition, the `utils` folder contains simple Dataflow snippets: adding labels, stopping jobs programmatically, process files selectively according to their format, understanding wall time, ensuring custom options are globally available, etc.
+In addition, the `utils` folder contains simple Dataflow snippets: adding labels, stopping jobs programmatically, process files selectively according to their format, understanding wall time, ensuring custom options are globally available, retrieving job ID or SDK version, etc.
 
 ## License
 
