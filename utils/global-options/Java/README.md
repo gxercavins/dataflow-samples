@@ -6,7 +6,7 @@ This example shows how to define custom options in a template, pass them at runt
 
 Set up [authentication](https://cloud.google.com/docs/authentication/) your preferred way. You can use the provided `stage.sh` and `execute.sh` scripts to stage and launch the template, correspondingly. Edit the variables -such as Project ID or Bucket name- in the top section of the scripts.
 
-This code was tested with `apache-beam[gcp]==2.5.0`.
+This code was tested with version 2.5.0 of the Java SDK.
 
 ## Example
 
