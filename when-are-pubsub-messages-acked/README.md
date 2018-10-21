@@ -1,6 +1,6 @@
 ## When are Pub/Sub Messages ACKed?
 
-A common Pub/Sub workflow involves reading some messages from a subscription and doing some operations with it. Once and only once the message is successfully processed the subscriber acknowledges it and it is removed from the subscription backlog. A minimal Python snippet from the [quickstart](https://cloud.google.com/pubsub/docs/quickstart-client-libraries#pubsub-client-libraries-python) where we just print the received message and ACK it:
+A common Pub/Sub workflow involves reading some messages from a subscription and doing some operations with it. Once and only once the message is successfully processed, the subscriber acknowledges it and it is removed from the subscription backlog. For instance, in this minimal Python snippet from the [quickstart](https://cloud.google.com/pubsub/docs/quickstart-client-libraries#pubsub-client-libraries-python) where it just prints the received messages and ACKs them:
 
 ```python
 def callback(message):
@@ -8,7 +8,7 @@ def callback(message):
     message.ack()
 ```
 
-With Dataflow it is much more convenient to use [`PubsubIO`](https://beam.apache.org/releases/javadoc/2.5.0/index.html?org/apache/beam/sdk/io/gcp/pubsub/PubsubIO.html) instead of sending requests to the Pub/Sub API using a Java library. However, we lose direct control over when are messages ACKed. `PubsubIO` uses [`PubsubUnboundedSource`](https://github.com/apache/beam/blob/v2.5.0/sdks/java/io/google-cloud-platform/src/main/java/org/apache/beam/sdk/io/gcp/pubsub/PubsubUnboundedSource.java) under the hood and, the checkpointing section [reads](https://github.com/apache/beam/blob/v2.5.0/sdks/java/io/google-cloud-platform/src/main/java/org/apache/beam/sdk/io/gcp/pubsub/PubsubUnboundedSource.java#L227):
+With Dataflow it is convenient to use the [`PubsubIO`](https://beam.apache.org/releases/javadoc/2.5.0/index.html?org/apache/beam/sdk/io/gcp/pubsub/PubsubIO.html) connector instead of sending requests to the Pub/Sub API using a Java library. However, we lose direct control over when are messages ACKed. `PubsubIO` uses [`PubsubUnboundedSource`](https://github.com/apache/beam/blob/v2.5.0/sdks/java/io/google-cloud-platform/src/main/java/org/apache/beam/sdk/io/gcp/pubsub/PubsubUnboundedSource.java) under the hood and, the checkpointing section [reads](https://github.com/apache/beam/blob/v2.5.0/sdks/java/io/google-cloud-platform/src/main/java/org/apache/beam/sdk/io/gcp/pubsub/PubsubUnboundedSource.java#L227):
 
 > Which messages have been durably committed and thus can now be ACKed.
 
@@ -16,7 +16,7 @@ But what does this mean in practice?
 
 Messages will be considered committed, and therefore ACKed, after the first FUSED step. This will depend on how the actual pipeline execution graph is constructed as, due to optimization, different steps can be fused together and executed sequentially in the same worker as explained [here](https://cloud.google.com/dataflow/service/dataflow-service-desc#fusion-optimization).
 
-In this example we'll play with two pipelines. The first one will read from Pub/Sub and write to Pub/Sub and will consist of a single fused step. Messages that are not written to the sink will NOT be ACKed and remain in the subscription backlog. For the second one, we'll read once more from Pub/Sub but write to BigQuery this time. This pipeline will consist of different fused steps so it is possible that messagesnot successfully inserted into the destination table are already committed/ACKed. We'll also explore how to prevent data loss in those situations by updating the job.
+In this example we'll play with two pipelines. The first one will read from Pub/Sub and write to Pub/Sub, consisting of a single fused step. Messages that are not written to the sink will NOT be ACKed and remain in the subscription backlog. For the second one, we'll read once more from Pub/Sub but write to BigQuery instead. This pipeline will consist of different fused steps so there can be messages not successfully inserted into the destination table which are already committed/ACKed. We'll also explore how to prevent data loss in those situations.
 
 ## Before you start
 
@@ -37,7 +37,7 @@ BigQuery tables used:
 
 ## Example
 
-First, we'll use `FusedPipeline.java`. We use `PubsubIO` to read messages from the input subscription (as explained why):
+First, we'll use `FusedPipeline.java`. We use `PubsubIO` to read messages from the input subscription (as explained in the previous section):
 
 ```java
 .apply("Read Messages", PubsubIO.readStrings().fromSubscription(subscription))
@@ -59,7 +59,7 @@ and in the dummy processing step we'll just throw an unhandled exception when th
 }))  
 ```
 
-The main idea is to see what will happen with those short messages. Finally, we write them to a different topic:
+The main idea is to see what will happen with those short messages. They will be read successfully but will fail during processing. Finally, we write them to a different topic:
 
 ```java
 .apply("Write Messages", PubsubIO.writeStrings().to(output));
@@ -82,7 +82,7 @@ If we inspect the job through the [Console UI](https://console.cloud.google.com/
 
 >  Executing operation Read Messages/PubsubUnboundedSource+Read Messages/MapElements/Map+Process Messages+Write Messages/MapElements/Map+Write Messages/PubsubUnboundedSink
 
-![img1](https://user-images.githubusercontent.com/29493411/47254472-7388dc00-d463-11e8-9827-1a4caba0d98f.png)
+![img1](https://user-images.githubusercontent.com/29493411/47264907-b4dec180-d51f-11e8-961c-f693ed2ce2e5.png)
 
 All the operations are part of a single step and the message will not be ACKed until it's written to the sink. Once the Dataflow workers have been initialized, we can proceed to publish two messages that will be successfully processed:
 * `$ gcloud pubsub topics publish input-topic --message="message one"`
@@ -113,7 +113,7 @@ Now, however, we'll publish a shorter message that will throw an exception withi
 $ gcloud pubsub topics publish input-topic --message="test"
 ```
 
-![img2](https://user-images.githubusercontent.com/29493411/47254473-7388dc00-d463-11e8-9430-053eacd0a3f6.png)
+![img2](https://user-images.githubusercontent.com/29493411/47264908-b4dec180-d51f-11e8-8eb0-d1d42aff5014.png)
 
 The message will not be committed to the sink topic:
 
@@ -168,13 +168,13 @@ mvn compile -e exec:java \
       --runner=DataflowRunner"
 ```
 
-Use instead `com.dataflow.samples.TwoNotFusedOutputs` and `--output1=$PROJECT:pubsub_ack.table1`, `--output2=$PROJECT:pubsub_ack.table2` for the dual-sink example.
+If you prefer to tun the dual-sink example use instead main class `com.dataflow.samples.TwoNotFusedOutputs` and `--output1=$PROJECT:pubsub_ack.table1`, `--output2=$PROJECT:pubsub_ack.table2` output options.
 
-Now the pipeline may contain very large fused steps but not every one will be part of the same operation. Therefore, messages will be considered committed before actually writing them to the destination sink:
+Now the pipeline will contain more than a single fused step (even if one of them will be relatively large). Therefore, messages will be considered committed before actually writing them to the destination sink:
 
 ![img3](https://user-images.githubusercontent.com/29493411/47254474-7388dc00-d463-11e8-8da9-0e6908f4b6ff.png)
 
-We can publish some messages (one to four) as we did before to check that the pipelines behaves as expected:
+We can publish some messages (one to four) as we did before to double check that the pipelines behaves as expected:
 
 ![img4](https://user-images.githubusercontent.com/29493411/47254475-7388dc00-d463-11e8-9af9-8d92da607210.png)
 
@@ -196,7 +196,9 @@ $ gcloud pubsub subscriptions pull input-sub --limit 10 --auto-ack
 Listed 0 items.
 ```
 
-Is the message lost in this case? Data is durably committed within the pipeline so unless we cancel or drain the job we can still recover it. In this example we can just re-create the table again. For other errors, such as schema mismatch, to "rescue" in-flight data we can resort to a job update, but it might not be feasible for all cases. Refer to the [docs](https://cloud.google.com/dataflow/pipelines/updating-a-pipeline) for more information. Launch the job with the same name of the pipeline that you want to update in the `--jobName` parameter and add the `--update` flag. Both pipelines will have the same job name. If you inspect the stuck job, in the job summary tab you'll see the ID of the new updated job.
+Is the message lost in this case? Data is durably committed within the pipeline so unless we cancel or drain the job we can still recover it. In this example we can just re-create the table again. For other errors, such as schema mismatch, to "rescue" in-flight data we can resort to a job update (it might not be feasible for all cases, though, and will depend on which step is the data buffered). Refer to the [docs](https://cloud.google.com/dataflow/pipelines/updating-a-pipeline) for more information. Launch the job with the same name of the pipeline that you want to update in the `--jobName` parameter and add the `--update` flag. Both pipelines will have the same job name. If you inspect the stuck job, in the job summary tab you'll see the ID of the new updated job where processing will continue.
+
+## Conclusions
 
 As a summary, the way this is implemented in Dataflow, we don't have direct control on when messages are ACKed. This will depend on the underlying structure of the pipeline but it's not straightforward to force/prevent fusion. In most cases, we'll have more than a single fused step and need to account for updating streaming jobs instead of cancelling/draining them to avoid data loss.
 
@@ -204,7 +206,7 @@ If we have more stringent requirements we can consider using `com.google.api.ser
 
 ## Shutdown
 
-As streaming jobs these will run until we issue the drain/cancel command. We can do so using the UI, the API, Client libraries or the `gcloud` command, for example (you might need to account for the `region` if specified at runtime):
+Streaming jobs will run until we issue the drain/cancel command. We can do so using the UI, the API, Client libraries or the `gcloud` command, for example (you might need to account for the `region` if specified at runtime):
 
 ```bash
 gcloud dataflow jobs cancel $(gcloud dataflow jobs list | grep -m 1 fusedpipeline | cut -f 1 -d " ")
