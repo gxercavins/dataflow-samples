@@ -44,7 +44,7 @@ pyparsing==2.2.0
 pytz==2018.4
 PyVCF==0.6.8
 PyYAML==3.13
-requests==2.19.1
+requests>=2.20.0
 rsa==3.4.2
 six==1.11.0
 typing==3.6.6
