@@ -103,7 +103,7 @@ $ gcloud pubsub subscriptions pull output-sub --limit 10 --auto-ack
 The messages have been durably committed to the sink so they have been ACKed and no longer remain on the input subscription's backlog:
 
 ```bash
-$ gcloud pubsub subscriptions pull input-topic --limit 10 --auto-ack
+$ gcloud pubsub subscriptions pull input-sub --limit 10 --auto-ack
 Listed 0 items.
 ```
 
@@ -125,7 +125,7 @@ Listed 0 items.
 And, as it's still UNACKed from the input subscription, we can pull it manually and see that it was still in the backlog:
 
 ```bash
-gcloud pubsub subscriptions pull input-topic --limit 10 --auto-ack
+gcloud pubsub subscriptions pull input-sub --limit 10 --auto-ack
 ┌──────┬─────────────────┬────────────┐
 │ DATA │    MESSAGE_ID   │ ATTRIBUTES │
 ├──────┼─────────────────┼────────────┤
