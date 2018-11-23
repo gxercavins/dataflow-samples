@@ -12,7 +12,7 @@ Use the below button to clone this repository into Cloud Shell and start right a
 
 ## Examples
 
-Currently, there are three examples available:
+Currently, these are the examples available:
 
 * **Adaptive triggers (Java)**: modify the behavior of triggers at the start and end of the same window so that you can have some degree of control on the output rate.
 * **Dynamic destinations (Java)**: write dynamically to different BigQuery tables according to the schema of the processed record.
