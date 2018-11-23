@@ -6,6 +6,10 @@ This repository contains some Google Cloud Dataflow / Apache Beam samples.
 
 Each folder contains specific instructions for the corresponding example.
 
+Use the below button to clone this repository into Cloud Shell and start right away:
+
+[![Open this project in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/gxercavins/dataflow-samples&page=editor&tutorial=README.md)
+
 ## Examples
 
 Currently, there are three examples available:
