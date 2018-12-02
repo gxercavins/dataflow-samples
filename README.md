@@ -16,6 +16,7 @@ Currently, these are the examples available:
 
 * **Adaptive triggers (Java)**: modify the behavior of triggers at the start and end of the same window so that you can have some degree of control on the output rate.
 * **Dynamic destinations (Java)**: write dynamically to different BigQuery tables according to the schema of the processed record.
+* **Filename match (Python)**: read from multiple files and prepend to each record the name of the matching file (optionally enrich with BigQuery).
 * **Logging GroupByKey (Java)**: some ideas to log information about grouped elements using Stackdriver and BigQuery.
 * **Normalize values (Python)**: normalize all PCollection values after calculating the maximum and minimum per each key.
 * **Quick, Draw! dataset (Python)**: download raw data from a public dataset, convert to images and save them in `png` format.
