@@ -39,6 +39,8 @@ gcloud dataflow jobs run pubsub-to-bigquery \
   --parameters=inputSubscription=projects/$PROJECT/subscriptions/$SUB_NAME,outputTableSpec=$BQ_TABLE,outputDeadletterTable=${BQ_TABLE}_deadletter
 ```
 
+You can, instead, just copy the template given here (`PubSubToBigQuery` file) or just invoke my staged template by replacing `--gcs-location` for `gs://my-dataflow-templates/PubSubToBigQuery`.
+
 Be sure to set up `BQ_TABLE` and `SUB_NAME` beforehand. If needed create the BigQuery table, for example:
 ```bash
 bq mk --table $BQ_TABLE k1:STRING,k2:STRING
@@ -49,7 +51,7 @@ To test that it works just publish any message with JSON format to the Pub/Sub t
 gcloud pubsub topics publish $TOPIC_NAME --message='{k1:"v1", k2:"v2"}'
 ```
 
-You can, instead, just copy the template given here (`PubSubToBigQuery` file) or just invoke my staged template by replacing `--gcs-location` for `gs://my-dataflow-templates/PubSubToBigQuery`.
+![k1k2](https://user-images.githubusercontent.com/29493411/51083243-fd6cdc00-1716-11e9-8cba-16ff56c4381c.png)
 
 This code was tested with version 2.8.0 of the Java SDK.
 
