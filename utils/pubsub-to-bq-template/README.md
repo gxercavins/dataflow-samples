@@ -18,7 +18,7 @@ git clone https://github.com/GoogleCloudPlatform/DataflowTemplates.git
 
 and modify `DataflowTemplates/src/main/java/com/google/cloud/teleport/templates/PubSubToBigQuery.java` with the `PubSubToBigQuery.java` file here.
 
-Set up the corresponding `PROJECT` and `BUCKET`variables. Then, stage the template with:
+Set up the corresponding `PROJECT` and `BUCKET` variables. Then, stage the template with:
 ```bash
 mvn compile exec:java \
  -Dexec.mainClass=com.google.cloud.teleport.templates.PubSubToBigQuery \
@@ -39,7 +39,7 @@ gcloud dataflow jobs run pubsub-to-bigquery \
   --parameters=inputSubscription=projects/$PROJECT/subscriptions/$SUB_NAME,outputTableSpec=$BQ_TABLE,outputDeadletterTable=${BQ_TABLE}_deadletter
 ```
 
-You can, instead, just copy the template given here (`PubSubToBigQuery` file) or just invoke my staged template by replacing `--gcs-location` for `gs://my-dataflow-templates/PubSubToBigQuery`.
+You can, instead, just copy the template given here (`PubSubToBigQuery` file) or just invoke my staged template by replacing `--gcs-location` for `gs://my-dataflow-templates/templates/PubSubToBigQuery`.
 
 Be sure to set up `BQ_TABLE` and `SUB_NAME` beforehand. If needed create the BigQuery table, for example:
 ```bash

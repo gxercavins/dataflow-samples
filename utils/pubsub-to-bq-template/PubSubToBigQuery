@@ -1,5 +1,5 @@
 {
-  "clientRequestId" : "20190113070457004_2774",
+  "clientRequestId" : "20190113094946049_1796",
   "environment" : {
     "dataset" : "bigquery.googleapis.com/cloud_dataflow",
     "experiments" : [ ],
@@ -16,13 +16,13 @@
         "enableCloudDebugger" : false,
         "zone" : null,
         "workerMachineType" : null,
-        "gcpTempLocation" : "gs://gxt-proj1/temp",
+        "gcpTempLocation" : "gs://my-dataflow-templates/temp",
         "numWorkers" : 0,
         "runner" : "org.apache.beam.runners.dataflow.DataflowRunner",
         "credentialFactoryClass" : "org.apache.beam.sdk.extensions.gcp.auth.GcpCredentialFactory",
         "javascriptTextTransformGcsPath" : null,
         "googleApiTrace" : null,
-        "jobName" : "pubsubtobigquery-gxercavins-0113070453-677e6ee0",
+        "jobName" : "pubsubtobigquery-gxercavins-0113094933-3a7bcfd3",
         "autoscalingAlgorithm" : null,
         "optionsId" : 0,
         "maxNumWorkers" : 0,
@@ -32,11 +32,11 @@
         "outputDeadletterTable" : null,
         "userAgent" : "Apache_Beam_SDK_for_Java/2.8.0",
         "serviceAccount" : null,
-        "stagingLocation" : "gs://gxt-proj1/staging",
-        "pipelineUrl" : "gs://gxt-proj1/staging/pipeline-XDCzsF9T6Nc50EO83iNCzw.pb",
+        "stagingLocation" : "gs://my-dataflow-templates/staging",
+        "pipelineUrl" : "gs://my-dataflow-templates/staging/pipeline-XDCzsF9T6Nc50EO83iNCzw.pb",
         "labels" : null,
         "stagerClass" : "org.apache.beam.runners.dataflow.util.GcsStager",
-        "tempLocation" : "gs://gxt-proj1/temp",
+        "tempLocation" : "gs://my-dataflow-templates/temp",
         "hdfsConfiguration" : null,
         "inputSubscription" : null,
         "stableUniqueNames" : "WARNING",
@@ -45,30 +45,51 @@
         "gcsUploadBufferSizeBytes" : null,
         "subnetwork" : null,
         "filesToStage" : [ "/home/gxercavins/DataflowTemplates/target/classes", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-core/2.8.0/beam-sdks-java-core-2.8.0.jar", "/home/gxercavins/.m2/repository/org/xerial/snappy/snappy-java/1.1.4/snappy-java-1.1.4.jar", "/home/gxercavins/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-google-cloud-platform/2.8.0/beam-sdks-java-io-google-cloud-platform-2.8.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-protobuf/2.8.0/beam-sdks-java-extensions-protobuf-2.8.0.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-core/1.13.1/grpc-core-1.13.1.jar", "/home/gxercavins/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.2/error_prone_annotations-2.1.2.jar", "/home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-metrics/0.12.3/opencensus-contrib-grpc-metrics-0.12.3.jar", "/home/gxercavins/.m2/repository/com/google/api/gax-grpc/1.29.0/gax-grpc-1.29.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-grpc/1.36.0/google-cloud-core-grpc-1.36.0.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-pubsub/v1-rev399-1.24.1/google-api-services-pubsub-v1-rev399-1.24.1.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-pubsub-v1/1.18.0/grpc-google-cloud-pubsub-v1-1.18.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-pubsub-v1/1.18.0/proto-google-cloud-pubsub-v1-1.18.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/util/1.9.0/util-1.9.0.jar", "/home/gxercavins/.m2/repository/com/google/api-client/google-api-client-java6/1.23.0/google-api-client-java6-1.23.0.jar", "/home/gxercavins/.m2/repository/com/google/api-client/google-api-client-jackson2/1.23.0/google-api-client-jackson2-1.23.0.jar", "/home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client/1.23.0/google-oauth-client-1.23.0.jar", "/home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client-java6/1.23.0/google-oauth-client-java6-1.23.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/datastore/datastore-v1-proto-client/1.6.0/datastore-v1-proto-client-1.6.0.jar", "/home/gxercavins/.m2/repository/com/google/http-client/google-http-client-protobuf/1.20.0/google-http-client-protobuf-1.20.0.jar", "/home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson/1.20.0/google-http-client-jackson-1.20.0.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-auth/1.13.1/grpc-auth-1.13.1.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-netty/1.13.1/grpc-netty-1.13.1.jar", "/home/gxercavins/.m2/repository/io/netty/netty-codec-http2/4.1.25.Final/netty-codec-http2-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-codec-http/4.1.25.Final/netty-codec-http-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-handler-proxy/4.1.25.Final/netty-handler-proxy-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-codec-socks/4.1.25.Final/netty-codec-socks-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-handler/4.1.25.Final/netty-handler-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-buffer/4.1.25.Final/netty-buffer-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-common/4.1.25.Final/netty-common-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-transport/4.1.25.Final/netty-transport-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-resolver/4.1.25.Final/netty-resolver-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/netty/netty-codec/4.1.25.Final/netty-codec-4.1.25.Final.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-stub/1.13.1/grpc-stub-1.13.1.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-v2/0.19.0/grpc-google-cloud-bigtable-v2-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api-client/google-api-client/1.24.1/google-api-client-1.24.1.jar", "/home/gxercavins/.m2/repository/com/google/http-client/google-http-client/1.24.1/google-http-client-1.24.1.jar", "/home/gxercavins/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar", "/home/gxercavins/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar", "/home/gxercavins/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar", "/home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson2/1.24.1/google-http-client-jackson2-1.24.1.jar", "/home/gxercavins/.m2/repository/com/google/auth/google-auth-library-credentials/0.10.0/google-auth-library-credentials-0.10.0.jar", "/home/gxercavins/.m2/repository/com/google/auth/google-auth-library-oauth2-http/0.10.0/google-auth-library-oauth2-http-0.10.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-all/1.13.1/grpc-all-1.13.1.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-okhttp/1.13.1/grpc-okhttp-1.13.1.jar", "/home/gxercavins/.m2/repository/com/squareup/okhttp/okhttp/2.5.0/okhttp-2.5.0.jar", "/home/gxercavins/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-nano/1.13.1/grpc-protobuf-nano-1.13.1.jar", "/home/gxercavins/.m2/repository/com/google/protobuf/nano/protobuf-javanano/3.0.0-alpha-5/protobuf-javanano-3.0.0-alpha-5.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-testing/1.13.1/grpc-testing-1.13.1.jar", "/home/gxercavins/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.8.Final/netty-tcnative-boringssl-static-2.0.8.Final.jar", "/home/gxercavins/.m2/repository/org/threeten/threetenbp/1.3.3/threetenbp-1.3.3.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-google-cloud-platform-core/2.8.0/beam-sdks-java-extensions-google-cloud-platform-core-2.8.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/gcsio/1.9.0/gcsio-1.9.0.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-cloudresourcemanager/v1-rev502-1.24.1/google-api-services-cloudresourcemanager-v1-rev502-1.24.1.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-runners-google-cloud-dataflow-java/2.8.0/beam-runners-google-cloud-dataflow-java-2.8.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-model-pipeline/2.8.0/beam-model-pipeline-2.8.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-runners-core-construction-java/2.8.0/beam-runners-core-construction-java-2.8.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-model-job-management/2.8.0/beam-model-job-management-2.8.0.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-dataflow/v1b3-rev257-1.24.1/google-api-services-dataflow-v1b3-rev257-1.24.1.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-clouddebugger/v2-rev253-1.24.1/google-api-services-clouddebugger-v2-rev253-1.24.1.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-jdbc/2.8.0/beam-sdks-java-io-jdbc-2.8.0.jar", "/home/gxercavins/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar", "/home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core/1.36.0/google-cloud-core-1.36.0.jar", "/home/gxercavins/.m2/repository/com/google/api/api-common/1.6.0/api-common-1.6.0.jar", "/home/gxercavins/.m2/repository/com/google/api/gax/1.29.0/gax-1.29.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-iam-v1/0.12.0/proto-google-iam-v1-0.12.0.jar", "/home/gxercavins/.m2/repository/joda-time/joda-time/2.4/joda-time-2.4.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-storage/v1-rev136-1.24.1/google-api-services-storage-v1-rev136-1.24.1.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-datastore-v1/0.19.0/proto-google-cloud-datastore-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/google-cloud-spanner/0.54.0-beta/google-cloud-spanner-0.54.0-beta.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-v1/0.19.0/proto-google-cloud-spanner-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-instance-v1/0.19.0/proto-google-cloud-spanner-admin-instance-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-v1/0.19.0/grpc-google-cloud-spanner-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-database-v1/0.19.0/grpc-google-cloud-spanner-admin-database-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-instance-v1/0.19.0/grpc-google-cloud-spanner-admin-instance-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-common-protos/1.12.0/grpc-google-common-protos-1.12.0.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-netty-shaded/1.13.1/grpc-netty-shaded-1.13.1.jar", "/home/gxercavins/.m2/repository/io/opencensus/opencensus-api/0.12.3/opencensus-api-0.12.3.jar", "/home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-util/0.12.3/opencensus-contrib-grpc-util-0.12.3.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-database-v1/0.19.0/proto-google-cloud-spanner-admin-database-v1-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-beam-import/1.5.0/bigtable-beam-import-1.5.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-beam/1.5.0/bigtable-hbase-beam-1.5.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hbase/2.5.0/beam-sdks-java-io-hbase-2.5.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-file-system/2.5.0/beam-sdks-java-io-hadoop-file-system-2.5.0.jar", "/home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-common/2.5.0/beam-sdks-java-io-hadoop-common-2.5.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-1.x-shaded/1.5.0/bigtable-hbase-1.x-shaded-1.5.0.jar", "/home/gxercavins/.m2/repository/org/apache/hbase/hbase-shaded-client/1.4.5/hbase-shaded-client-1.4.5.jar", "/home/gxercavins/.m2/repository/org/apache/htrace/htrace-core/3.1.0-incubating/htrace-core-3.1.0-incubating.jar", "/home/gxercavins/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar", "/home/gxercavins/.m2/repository/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar", "/home/gxercavins/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar", "/home/gxercavins/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar", "/home/gxercavins/.m2/repository/io/dropwizard/metrics/metrics-core/3.1.2/metrics-core-3.1.2.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-v2/0.19.0/proto-google-cloud-bigtable-v2-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-client-core/1.5.0/bigtable-client-core-1.5.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-admin-v2/0.19.0/proto-google-cloud-bigtable-admin-v2-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-admin-v2/0.19.0/grpc-google-cloud-bigtable-admin-v2-0.19.0.jar", "/home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-http/1.36.0/google-cloud-core-http-1.36.0.jar", "/home/gxercavins/.m2/repository/com/google/http-client/google-http-client-appengine/1.23.0/google-http-client-appengine-1.23.0.jar", "/home/gxercavins/.m2/repository/com/google/api/gax-httpjson/0.46.0/gax-httpjson-0.46.0.jar", "/home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.12.3/opencensus-contrib-http-util-0.12.3.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-protobuf/1.13.1/grpc-protobuf-1.13.1.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-lite/1.13.1/grpc-protobuf-lite-1.13.1.jar", "/home/gxercavins/.m2/repository/io/grpc/grpc-context/1.13.1/grpc-context-1.13.1.jar", "/home/gxercavins/.m2/repository/com/google/apis/google-api-services-bigquery/v2-rev374-1.22.0/google-api-services-bigquery-v2-rev374-1.22.0.jar", "/home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java/3.6.0/protobuf-java-3.6.0.jar", "/home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java-util/3.3.1/protobuf-java-util-3.3.1.jar", "/home/gxercavins/.m2/repository/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar", "/home/gxercavins/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar", "/home/gxercavins/.m2/repository/org/json/json/20160810/json-20160810.jar", "/home/gxercavins/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar", "/home/gxercavins/.m2/repository/com/google/auto/value/auto-value-annotations/1.6/auto-value-annotations-1.6.jar", "/home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.8/jackson-core-2.8.8.jar", "/home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.8/jackson-databind-2.8.8.jar", "/home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.8/jackson-annotations-2.8.8.jar", "/home/gxercavins/.m2/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar", "/home/gxercavins/.m2/repository/org/apache/commons/commons-dbcp2/2.1.1/commons-dbcp2-2.1.1.jar", "/home/gxercavins/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar", "/home/gxercavins/.m2/repository/org/apache/avro/avro/1.8.2/avro-1.8.2.jar", "/home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar", "/home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar", "/home/gxercavins/.m2/repository/com/thoughtworks/paranamer/paranamer/2.7/paranamer-2.7.jar", "/home/gxercavins/.m2/repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar", "/home/gxercavins/.m2/repository/org/apache/kafka/kafka-clients/1.0.0/kafka-clients-1.0.0.jar", "/home/gxercavins/.m2/repository/org/lz4/lz4-java/1.4/lz4-java-1.4.jar", "/home/gxercavins/.m2/repository/org/springframework/spring-expression/4.3.18.RELEASE/spring-expression-4.3.18.RELEASE.jar", "/home/gxercavins/.m2/repository/org/springframework/spring-core/4.3.18.RELEASE/spring-core-4.3.18.RELEASE.jar" ],
-        "templateLocation" : "gs://gxt-proj1/templates/PubSubToBigQuery",
+        "templateLocation" : "gs://my-dataflow-templates/templates/PubSubToBigQuery",
         "pathValidatorClass" : "org.apache.beam.sdk.extensions.gcp.storage.GcsPathValidator",
         "diskSizeGb" : 0
       },
       "display_data" : [ {
-        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
-        "key" : "project",
+        "namespace" : "org.apache.beam.sdk.options.PortablePipelineOptions",
+        "key" : "filesToStage",
         "type" : "STRING",
-        "value" : "gxt-proj1"
-      }, {
-        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
-        "key" : "jobName",
-        "type" : "STRING",
-        "value" : "pubsubtobigquery-gxercavins-0113070453-677e6ee0"
-      }, {
-        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
-        "key" : "tempLocation",
-        "type" : "STRING",
-        "value" : "gs://gxt-proj1/temp"
+        "value" : "[/home/gxercavins/DataflowTemplates/target/classes, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-core/2.8.0/beam-sdks-java-core-2.8.0.jar, /home/gxercavins/.m2/repository/org/xerial/snappy/snappy-java/1.1.4/snappy-java-1.1.4.jar, /home/gxercavins/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-google-cloud-platform/2.8.0/beam-sdks-java-io-google-cloud-platform-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-protobuf/2.8.0/beam-sdks-java-extensions-protobuf-2.8.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-core/1.13.1/grpc-core-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.2/error_prone_annotations-2.1.2.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-metrics/0.12.3/opencensus-contrib-grpc-metrics-0.12.3.jar, /home/gxercavins/.m2/repository/com/google/api/gax-grpc/1.29.0/gax-grpc-1.29.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-grpc/1.36.0/google-cloud-core-grpc-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-pubsub/v1-rev399-1.24.1/google-api-services-pubsub-v1-rev399-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-pubsub-v1/1.18.0/grpc-google-cloud-pubsub-v1-1.18.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-pubsub-v1/1.18.0/proto-google-cloud-pubsub-v1-1.18.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/util/1.9.0/util-1.9.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client-java6/1.23.0/google-api-client-java6-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client-jackson2/1.23.0/google-api-client-jackson2-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client/1.23.0/google-oauth-client-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client-java6/1.23.0/google-oauth-client-java6-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/datastore/datastore-v1-proto-client/1.6.0/datastore-v1-proto-client-1.6.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-protobuf/1.20.0/google-http-client-protobuf-1.20.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson/1.20.0/google-http-client-jackson-1.20.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-auth/1.13.1/grpc-auth-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-netty/1.13.1/grpc-netty-1.13.1.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-http2/4.1.25.Final/netty-codec-http2-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-http/4.1.25.Final/netty-codec-http-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-handler-proxy/4.1.25.Final/netty-handler-proxy-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-socks/4.1.25.Final/netty-codec-socks-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-handler/4.1.25.Final/netty-handler-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-buffer/4.1.25.Final/netty-buffer-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-common/4.1.25.Final/netty-common-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-transport/4.1.25.Final/netty-transport-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-resolver/4.1.25.Final/netty-resolver-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec/4.1.25.Final/netty-codec-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-stub/1.13.1/grpc-stub-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-v2/0.19.0/grpc-google-cloud-bigtable-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client/1.24.1/google-api-client-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client/1.24.1/google-http-client-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar, /home/gxercavins/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar, /home/gxercavins/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson2/1.24.1/google-http-client-jackson2-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/auth/google-auth-library-credentials/0.10.0/google-auth-library-credentials-0.10.0.jar, /home/gxercavins/.m2/repository/com/google/auth/google-auth-library-oauth2-http/0.10.0/google-auth-library-oauth2-http-0.10.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-all/1.13.1/grpc-all-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-okhttp/1.13.1/grpc-okhttp-1.13.1.jar, /home/gxercavins/.m2/repository/com/squareup/okhttp/okhttp/2.5.0/okhttp-2.5.0.jar, /home/gxercavins/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-nano/1.13.1/grpc-protobuf-nano-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/protobuf/nano/protobuf-javanano/3.0.0-alpha-5/protobuf-javanano-3.0.0-alpha-5.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-testing/1.13.1/grpc-testing-1.13.1.jar, /home/gxercavins/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.8.Final/netty-tcnative-boringssl-static-2.0.8.Final.jar, /home/gxercavins/.m2/repository/org/threeten/threetenbp/1.3.3/threetenbp-1.3.3.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-google-cloud-platform-core/2.8.0/beam-sdks-java-extensions-google-cloud-platform-core-2.8.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/gcsio/1.9.0/gcsio-1.9.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-cloudresourcemanager/v1-rev502-1.24.1/google-api-services-cloudresourcemanager-v1-rev502-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-runners-google-cloud-dataflow-java/2.8.0/beam-runners-google-cloud-dataflow-java-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-model-pipeline/2.8.0/beam-model-pipeline-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-runners-core-construction-java/2.8.0/beam-runners-core-construction-java-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-model-job-management/2.8.0/beam-model-job-management-2.8.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-dataflow/v1b3-rev257-1.24.1/google-api-services-dataflow-v1b3-rev257-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-clouddebugger/v2-rev253-1.24.1/google-api-services-clouddebugger-v2-rev253-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-jdbc/2.8.0/beam-sdks-java-io-jdbc-2.8.0.jar, /home/gxercavins/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core/1.36.0/google-cloud-core-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/api/api-common/1.6.0/api-common-1.6.0.jar, /home/gxercavins/.m2/repository/com/google/api/gax/1.29.0/gax-1.29.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-iam-v1/0.12.0/proto-google-iam-v1-0.12.0.jar, /home/gxercavins/.m2/repository/joda-time/joda-time/2.4/joda-time-2.4.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-storage/v1-rev136-1.24.1/google-api-services-storage-v1-rev136-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-datastore-v1/0.19.0/proto-google-cloud-datastore-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-spanner/0.54.0-beta/google-cloud-spanner-0.54.0-beta.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-v1/0.19.0/proto-google-cloud-spanner-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-instance-v1/0.19.0/proto-google-cloud-spanner-admin-instance-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-v1/0.19.0/grpc-google-cloud-spanner-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-database-v1/0.19.0/grpc-google-cloud-spanner-admin-database-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-instance-v1/0.19.0/grpc-google-cloud-spanner-admin-instance-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-common-protos/1.12.0/grpc-google-common-protos-1.12.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-netty-shaded/1.13.1/grpc-netty-shaded-1.13.1.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-api/0.12.3/opencensus-api-0.12.3.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-util/0.12.3/opencensus-contrib-grpc-util-0.12.3.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-database-v1/0.19.0/proto-google-cloud-spanner-admin-database-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-beam-import/1.5.0/bigtable-beam-import-1.5.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-beam/1.5.0/bigtable-hbase-beam-1.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hbase/2.5.0/beam-sdks-java-io-hbase-2.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-file-system/2.5.0/beam-sdks-java-io-hadoop-file-system-2.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-common/2.5.0/beam-sdks-java-io-hadoop-common-2.5.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-1.x-shaded/1.5.0/bigtable-hbase-1.x-shaded-1.5.0.jar, /home/gxercavins/.m2/repository/org/apache/hbase/hbase-shaded-client/1.4.5/hbase-shaded-client-1.4.5.jar, /home/gxercavins/.m2/repository/org/apache/htrace/htrace-core/3.1.0-incubating/htrace-core-3.1.0-incubating.jar, /home/gxercavins/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /home/gxercavins/.m2/repository/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar, /home/gxercavins/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar, /home/gxercavins/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /home/gxercavins/.m2/repository/io/dropwizard/metrics/metrics-core/3.1.2/metrics-core-3.1.2.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-v2/0.19.0/proto-google-cloud-bigtable-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-client-core/1.5.0/bigtable-client-core-1.5.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-admin-v2/0.19.0/proto-google-cloud-bigtable-admin-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-admin-v2/0.19.0/grpc-google-cloud-bigtable-admin-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-http/1.36.0/google-cloud-core-http-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-appengine/1.23.0/google-http-client-appengine-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/api/gax-httpjson/0.46.0/gax-httpjson-0.46.0.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.12.3/opencensus-contrib-http-util-0.12.3.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf/1.13.1/grpc-protobuf-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-lite/1.13.1/grpc-protobuf-lite-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-context/1.13.1/grpc-context-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-bigquery/v2-rev374-1.22.0/google-api-services-bigquery-v2-rev374-1.22.0.jar, /home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java/3.6.0/protobuf-java-3.6.0.jar, /home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java-util/3.3.1/protobuf-java-util-3.3.1.jar, /home/gxercavins/.m2/repository/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar, /home/gxercavins/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar, /home/gxercavins/.m2/repository/org/json/json/20160810/json-20160810.jar, /home/gxercavins/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar, /home/gxercavins/.m2/repository/com/google/auto/value/auto-value-annotations/1.6/auto-value-annotations-1.6.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.8/jackson-core-2.8.8.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.8/jackson-databind-2.8.8.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.8/jackson-annotations-2.8.8.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-dbcp2/2.1.1/commons-dbcp2-2.1.1.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar, /home/gxercavins/.m2/repository/org/apache/avro/avro/1.8.2/avro-1.8.2.jar, /home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar, /home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar, /home/gxercavins/.m2/repository/com/thoughtworks/paranamer/paranamer/2.7/paranamer-2.7.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar, /home/gxercavins/.m2/repository/org/apache/kafka/kafka-clients/1.0.0/kafka-clients-1.0.0.jar, /home/gxercavins/.m2/repository/org/lz4/lz4-java/1.4/lz4-java-1.4.jar, /home/gxercavins/.m2/repository/org/springframework/spring-expression/4.3.18.RELEASE/spring-expression-4.3.18.RELEASE.jar, /home/gxercavins/.m2/repository/org/springframework/spring-core/4.3.18.RELEASE/spring-core-4.3.18.RELEASE.jar]"
       }, {
         "namespace" : "org.apache.beam.sdk.options.ApplicationNameOptions",
         "key" : "appName",
         "type" : "STRING",
         "value" : "PubSubToBigQuery"
+      }, {
+        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
+        "key" : "jobName",
+        "type" : "STRING",
+        "value" : "pubsubtobigquery-gxercavins-0113094933-3a7bcfd3"
+      }, {
+        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
+        "key" : "tempLocation",
+        "type" : "STRING",
+        "value" : "gs://my-dataflow-templates/temp"
+      }, {
+        "namespace" : "org.apache.beam.sdk.options.StreamingOptions",
+        "key" : "streaming",
+        "type" : "BOOLEAN",
+        "value" : true
+      }, {
+        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
+        "key" : "stagingLocation",
+        "type" : "STRING",
+        "value" : "gs://my-dataflow-templates/staging"
+      }, {
+        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
+        "key" : "pipelineUrl",
+        "type" : "STRING",
+        "value" : "gs://my-dataflow-templates/staging/pipeline-XDCzsF9T6Nc50EO83iNCzw.pb"
+      }, {
+        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
+        "key" : "runner",
+        "type" : "JAVA_CLASS",
+        "value" : "org.apache.beam.runners.dataflow.DataflowRunner",
+        "shortValue" : "DataflowRunner"
       }, {
         "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineWorkerPoolOptions",
         "key" : "filesToStage",
@@ -78,41 +99,20 @@
         "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
         "key" : "templateLocation",
         "type" : "STRING",
-        "value" : "gs://gxt-proj1/templates/PubSubToBigQuery"
-      }, {
-        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
-        "key" : "stagingLocation",
-        "type" : "STRING",
-        "value" : "gs://gxt-proj1/staging"
-      }, {
-        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
-        "key" : "pipelineUrl",
-        "type" : "STRING",
-        "value" : "gs://gxt-proj1/staging/pipeline-XDCzsF9T6Nc50EO83iNCzw.pb"
-      }, {
-        "namespace" : "org.apache.beam.sdk.options.StreamingOptions",
-        "key" : "streaming",
-        "type" : "BOOLEAN",
-        "value" : true
+        "value" : "gs://my-dataflow-templates/templates/PubSubToBigQuery"
       }, {
         "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
         "key" : "userAgent",
         "type" : "STRING",
         "value" : "Apache_Beam_SDK_for_Java/2.8.0"
       }, {
-        "namespace" : "org.apache.beam.sdk.options.PipelineOptions",
-        "key" : "runner",
-        "type" : "JAVA_CLASS",
-        "value" : "org.apache.beam.runners.dataflow.DataflowRunner",
-        "shortValue" : "DataflowRunner"
-      }, {
-        "namespace" : "org.apache.beam.sdk.options.PortablePipelineOptions",
-        "key" : "filesToStage",
+        "namespace" : "org.apache.beam.runners.dataflow.options.DataflowPipelineOptions",
+        "key" : "project",
         "type" : "STRING",
-        "value" : "[/home/gxercavins/DataflowTemplates/target/classes, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-core/2.8.0/beam-sdks-java-core-2.8.0.jar, /home/gxercavins/.m2/repository/org/xerial/snappy/snappy-java/1.1.4/snappy-java-1.1.4.jar, /home/gxercavins/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-google-cloud-platform/2.8.0/beam-sdks-java-io-google-cloud-platform-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-protobuf/2.8.0/beam-sdks-java-extensions-protobuf-2.8.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-core/1.13.1/grpc-core-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.2/error_prone_annotations-2.1.2.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-metrics/0.12.3/opencensus-contrib-grpc-metrics-0.12.3.jar, /home/gxercavins/.m2/repository/com/google/api/gax-grpc/1.29.0/gax-grpc-1.29.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-grpc/1.36.0/google-cloud-core-grpc-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-pubsub/v1-rev399-1.24.1/google-api-services-pubsub-v1-rev399-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-pubsub-v1/1.18.0/grpc-google-cloud-pubsub-v1-1.18.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-pubsub-v1/1.18.0/proto-google-cloud-pubsub-v1-1.18.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/util/1.9.0/util-1.9.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client-java6/1.23.0/google-api-client-java6-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client-jackson2/1.23.0/google-api-client-jackson2-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client/1.23.0/google-oauth-client-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/oauth-client/google-oauth-client-java6/1.23.0/google-oauth-client-java6-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/datastore/datastore-v1-proto-client/1.6.0/datastore-v1-proto-client-1.6.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-protobuf/1.20.0/google-http-client-protobuf-1.20.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson/1.20.0/google-http-client-jackson-1.20.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-auth/1.13.1/grpc-auth-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-netty/1.13.1/grpc-netty-1.13.1.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-http2/4.1.25.Final/netty-codec-http2-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-http/4.1.25.Final/netty-codec-http-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-handler-proxy/4.1.25.Final/netty-handler-proxy-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec-socks/4.1.25.Final/netty-codec-socks-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-handler/4.1.25.Final/netty-handler-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-buffer/4.1.25.Final/netty-buffer-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-common/4.1.25.Final/netty-common-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-transport/4.1.25.Final/netty-transport-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-resolver/4.1.25.Final/netty-resolver-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/netty/netty-codec/4.1.25.Final/netty-codec-4.1.25.Final.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-stub/1.13.1/grpc-stub-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-v2/0.19.0/grpc-google-cloud-bigtable-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api-client/google-api-client/1.24.1/google-api-client-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client/1.24.1/google-http-client-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar, /home/gxercavins/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar, /home/gxercavins/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-jackson2/1.24.1/google-http-client-jackson2-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/auth/google-auth-library-credentials/0.10.0/google-auth-library-credentials-0.10.0.jar, /home/gxercavins/.m2/repository/com/google/auth/google-auth-library-oauth2-http/0.10.0/google-auth-library-oauth2-http-0.10.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-common-protos/1.12.0/proto-google-common-protos-1.12.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-all/1.13.1/grpc-all-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-okhttp/1.13.1/grpc-okhttp-1.13.1.jar, /home/gxercavins/.m2/repository/com/squareup/okhttp/okhttp/2.5.0/okhttp-2.5.0.jar, /home/gxercavins/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-nano/1.13.1/grpc-protobuf-nano-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/protobuf/nano/protobuf-javanano/3.0.0-alpha-5/protobuf-javanano-3.0.0-alpha-5.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-testing/1.13.1/grpc-testing-1.13.1.jar, /home/gxercavins/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.8.Final/netty-tcnative-boringssl-static-2.0.8.Final.jar, /home/gxercavins/.m2/repository/org/threeten/threetenbp/1.3.3/threetenbp-1.3.3.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-extensions-google-cloud-platform-core/2.8.0/beam-sdks-java-extensions-google-cloud-platform-core-2.8.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigdataoss/gcsio/1.9.0/gcsio-1.9.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-cloudresourcemanager/v1-rev502-1.24.1/google-api-services-cloudresourcemanager-v1-rev502-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-runners-google-cloud-dataflow-java/2.8.0/beam-runners-google-cloud-dataflow-java-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-model-pipeline/2.8.0/beam-model-pipeline-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-runners-core-construction-java/2.8.0/beam-runners-core-construction-java-2.8.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-model-job-management/2.8.0/beam-model-job-management-2.8.0.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-dataflow/v1b3-rev257-1.24.1/google-api-services-dataflow-v1b3-rev257-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-clouddebugger/v2-rev253-1.24.1/google-api-services-clouddebugger-v2-rev253-1.24.1.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-jdbc/2.8.0/beam-sdks-java-io-jdbc-2.8.0.jar, /home/gxercavins/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core/1.36.0/google-cloud-core-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/api/api-common/1.6.0/api-common-1.6.0.jar, /home/gxercavins/.m2/repository/com/google/api/gax/1.29.0/gax-1.29.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-iam-v1/0.12.0/proto-google-iam-v1-0.12.0.jar, /home/gxercavins/.m2/repository/joda-time/joda-time/2.4/joda-time-2.4.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-storage/v1-rev136-1.24.1/google-api-services-storage-v1-rev136-1.24.1.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-datastore-v1/0.19.0/proto-google-cloud-datastore-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-spanner/0.54.0-beta/google-cloud-spanner-0.54.0-beta.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-v1/0.19.0/proto-google-cloud-spanner-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-instance-v1/0.19.0/proto-google-cloud-spanner-admin-instance-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-v1/0.19.0/grpc-google-cloud-spanner-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-database-v1/0.19.0/grpc-google-cloud-spanner-admin-database-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-spanner-admin-instance-v1/0.19.0/grpc-google-cloud-spanner-admin-instance-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-common-protos/1.12.0/grpc-google-common-protos-1.12.0.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-netty-shaded/1.13.1/grpc-netty-shaded-1.13.1.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-api/0.12.3/opencensus-api-0.12.3.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-grpc-util/0.12.3/opencensus-contrib-grpc-util-0.12.3.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-spanner-admin-database-v1/0.19.0/proto-google-cloud-spanner-admin-database-v1-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-beam-import/1.5.0/bigtable-beam-import-1.5.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-beam/1.5.0/bigtable-hbase-beam-1.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hbase/2.5.0/beam-sdks-java-io-hbase-2.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-file-system/2.5.0/beam-sdks-java-io-hadoop-file-system-2.5.0.jar, /home/gxercavins/.m2/repository/org/apache/beam/beam-sdks-java-io-hadoop-common/2.5.0/beam-sdks-java-io-hadoop-common-2.5.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-hbase-1.x-shaded/1.5.0/bigtable-hbase-1.x-shaded-1.5.0.jar, /home/gxercavins/.m2/repository/org/apache/hbase/hbase-shaded-client/1.4.5/hbase-shaded-client-1.4.5.jar, /home/gxercavins/.m2/repository/org/apache/htrace/htrace-core/3.1.0-incubating/htrace-core-3.1.0-incubating.jar, /home/gxercavins/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /home/gxercavins/.m2/repository/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar, /home/gxercavins/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar, /home/gxercavins/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /home/gxercavins/.m2/repository/io/dropwizard/metrics/metrics-core/3.1.2/metrics-core-3.1.2.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-v2/0.19.0/proto-google-cloud-bigtable-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/bigtable/bigtable-client-core/1.5.0/bigtable-client-core-1.5.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/proto-google-cloud-bigtable-admin-v2/0.19.0/proto-google-cloud-bigtable-admin-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/api/grpc/grpc-google-cloud-bigtable-admin-v2/0.19.0/grpc-google-cloud-bigtable-admin-v2-0.19.0.jar, /home/gxercavins/.m2/repository/com/google/cloud/google-cloud-core-http/1.36.0/google-cloud-core-http-1.36.0.jar, /home/gxercavins/.m2/repository/com/google/http-client/google-http-client-appengine/1.23.0/google-http-client-appengine-1.23.0.jar, /home/gxercavins/.m2/repository/com/google/api/gax-httpjson/0.46.0/gax-httpjson-0.46.0.jar, /home/gxercavins/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.12.3/opencensus-contrib-http-util-0.12.3.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf/1.13.1/grpc-protobuf-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-protobuf-lite/1.13.1/grpc-protobuf-lite-1.13.1.jar, /home/gxercavins/.m2/repository/io/grpc/grpc-context/1.13.1/grpc-context-1.13.1.jar, /home/gxercavins/.m2/repository/com/google/apis/google-api-services-bigquery/v2-rev374-1.22.0/google-api-services-bigquery-v2-rev374-1.22.0.jar, /home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java/3.6.0/protobuf-java-3.6.0.jar, /home/gxercavins/.m2/repository/com/google/protobuf/protobuf-java-util/3.3.1/protobuf-java-util-3.3.1.jar, /home/gxercavins/.m2/repository/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar, /home/gxercavins/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar, /home/gxercavins/.m2/repository/org/json/json/20160810/json-20160810.jar, /home/gxercavins/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar, /home/gxercavins/.m2/repository/com/google/auto/value/auto-value-annotations/1.6/auto-value-annotations-1.6.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.8/jackson-core-2.8.8.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.8/jackson-databind-2.8.8.jar, /home/gxercavins/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.8/jackson-annotations-2.8.8.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-dbcp2/2.1.1/commons-dbcp2-2.1.1.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar, /home/gxercavins/.m2/repository/org/apache/avro/avro/1.8.2/avro-1.8.2.jar, /home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar, /home/gxercavins/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar, /home/gxercavins/.m2/repository/com/thoughtworks/paranamer/paranamer/2.7/paranamer-2.7.jar, /home/gxercavins/.m2/repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar, /home/gxercavins/.m2/repository/org/apache/kafka/kafka-clients/1.0.0/kafka-clients-1.0.0.jar, /home/gxercavins/.m2/repository/org/lz4/lz4-java/1.4/lz4-java-1.4.jar, /home/gxercavins/.m2/repository/org/springframework/spring-expression/4.3.18.RELEASE/spring-expression-4.3.18.RELEASE.jar, /home/gxercavins/.m2/repository/org/springframework/spring-core/4.3.18.RELEASE/spring-core-4.3.18.RELEASE.jar]"
+        "value" : "gxt-proj1"
       } ]
     },
-    "tempStoragePrefix" : "storage.googleapis.com/gxt-proj1/temp",
+    "tempStoragePrefix" : "storage.googleapis.com/my-dataflow-templates/temp",
     "userAgent" : {
       "os.arch" : "amd64",
       "name" : "Apache Beam SDK for Java",
@@ -136,400 +136,400 @@
       "dataDisks" : [ { } ],
       "numWorkers" : 0,
       "packages" : [ {
-        "location" : "gs://gxt-proj1/staging/classes-ICXZOL3SQz7LnX96dPCnZw.jar",
-        "name" : "classes-ICXZOL3SQz7LnX96dPCnZw.jar"
+        "location" : "gs://my-dataflow-templates/staging/classes-DAzoh5N0ZgT0WhCVDMtOPg.jar",
+        "name" : "classes-DAzoh5N0ZgT0WhCVDMtOPg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-core-2.8.0-4c0ajcXVL0j-vi2406itsg.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-core-2.8.0-4c0ajcXVL0j-vi2406itsg.jar",
         "name" : "beam-sdks-java-core-2.8.0-4c0ajcXVL0j-vi2406itsg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/snappy-java-1.1.4-SFNwbMuGq13aaoKVzeS1Tw.jar",
+        "location" : "gs://my-dataflow-templates/staging/snappy-java-1.1.4-SFNwbMuGq13aaoKVzeS1Tw.jar",
         "name" : "snappy-java-1.1.4-SFNwbMuGq13aaoKVzeS1Tw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/xz-1.8-X5ghJ-DehbeFxLKrrSGqLg.jar",
+        "location" : "gs://my-dataflow-templates/staging/xz-1.8-X5ghJ-DehbeFxLKrrSGqLg.jar",
         "name" : "xz-1.8-X5ghJ-DehbeFxLKrrSGqLg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-io-google-cloud-platform-2.8.0-oCrta5zsntAoJKDMkzjL6w.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-io-google-cloud-platform-2.8.0-oCrta5zsntAoJKDMkzjL6w.jar",
         "name" : "beam-sdks-java-io-google-cloud-platform-2.8.0-oCrta5zsntAoJKDMkzjL6w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-extensions-protobuf-2.8.0-byuqzuw0ub_aQFixoqAaQw.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-extensions-protobuf-2.8.0-byuqzuw0ub_aQFixoqAaQw.jar",
         "name" : "beam-sdks-java-extensions-protobuf-2.8.0-byuqzuw0ub_aQFixoqAaQw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-core-1.13.1-Ny8VkwkXFAg9ErLZs0qvFg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-core-1.13.1-Ny8VkwkXFAg9ErLZs0qvFg.jar",
         "name" : "grpc-core-1.13.1-Ny8VkwkXFAg9ErLZs0qvFg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/error_prone_annotations-2.1.2-LLIi8MpR-Ko7MeHBJ-a_Tg.jar",
+        "location" : "gs://my-dataflow-templates/staging/error_prone_annotations-2.1.2-LLIi8MpR-Ko7MeHBJ-a_Tg.jar",
         "name" : "error_prone_annotations-2.1.2-LLIi8MpR-Ko7MeHBJ-a_Tg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/opencensus-contrib-grpc-metrics-0.12.3-XBoi3enn1sSAqVTqotX7zA.jar",
+        "location" : "gs://my-dataflow-templates/staging/opencensus-contrib-grpc-metrics-0.12.3-XBoi3enn1sSAqVTqotX7zA.jar",
         "name" : "opencensus-contrib-grpc-metrics-0.12.3-XBoi3enn1sSAqVTqotX7zA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/gax-grpc-1.29.0-zTd_Ed8L8exEKsPYvEo82Q.jar",
+        "location" : "gs://my-dataflow-templates/staging/gax-grpc-1.29.0-zTd_Ed8L8exEKsPYvEo82Q.jar",
         "name" : "gax-grpc-1.29.0-zTd_Ed8L8exEKsPYvEo82Q.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-cloud-core-grpc-1.36.0-xON794Sim-TpEO4FmCsdSQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-cloud-core-grpc-1.36.0-xON794Sim-TpEO4FmCsdSQ.jar",
         "name" : "google-cloud-core-grpc-1.36.0-xON794Sim-TpEO4FmCsdSQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-pubsub-v1-rev399-1.24.1-mvPsf19SVRge74W76yajqg.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-pubsub-v1-rev399-1.24.1-mvPsf19SVRge74W76yajqg.jar",
         "name" : "google-api-services-pubsub-v1-rev399-1.24.1-mvPsf19SVRge74W76yajqg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-pubsub-v1-1.18.0-E1prc1wk1jKpxE_eDXp9oQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-pubsub-v1-1.18.0-E1prc1wk1jKpxE_eDXp9oQ.jar",
         "name" : "grpc-google-cloud-pubsub-v1-1.18.0-E1prc1wk1jKpxE_eDXp9oQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-pubsub-v1-1.18.0-SffMBP8tm7nBbj85yZKTnQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-pubsub-v1-1.18.0-SffMBP8tm7nBbj85yZKTnQ.jar",
         "name" : "proto-google-cloud-pubsub-v1-1.18.0-SffMBP8tm7nBbj85yZKTnQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/util-1.9.0-u1WPVWvoPscJZOV1h5WDEQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/util-1.9.0-u1WPVWvoPscJZOV1h5WDEQ.jar",
         "name" : "util-1.9.0-u1WPVWvoPscJZOV1h5WDEQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-client-java6-1.23.0-G98rEHRjIVDBsZltynG2bw.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-client-java6-1.23.0-G98rEHRjIVDBsZltynG2bw.jar",
         "name" : "google-api-client-java6-1.23.0-G98rEHRjIVDBsZltynG2bw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-client-jackson2-1.23.0-BsCcAsdwSRYdIfoMEa2LuA.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-client-jackson2-1.23.0-BsCcAsdwSRYdIfoMEa2LuA.jar",
         "name" : "google-api-client-jackson2-1.23.0-BsCcAsdwSRYdIfoMEa2LuA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-oauth-client-1.23.0-eIvCT50c96i0LUnzkC7uTQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-oauth-client-1.23.0-eIvCT50c96i0LUnzkC7uTQ.jar",
         "name" : "google-oauth-client-1.23.0-eIvCT50c96i0LUnzkC7uTQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-oauth-client-java6-1.23.0-QZqMukDCGO5rdSG7KblHpA.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-oauth-client-java6-1.23.0-QZqMukDCGO5rdSG7KblHpA.jar",
         "name" : "google-oauth-client-java6-1.23.0-QZqMukDCGO5rdSG7KblHpA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/datastore-v1-proto-client-1.6.0-uyyLKzyVhahFJuvTiE8isw.jar",
+        "location" : "gs://my-dataflow-templates/staging/datastore-v1-proto-client-1.6.0-uyyLKzyVhahFJuvTiE8isw.jar",
         "name" : "datastore-v1-proto-client-1.6.0-uyyLKzyVhahFJuvTiE8isw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-http-client-protobuf-1.20.0-walfZh2_TWtY2f9oxMcF0A.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-http-client-protobuf-1.20.0-walfZh2_TWtY2f9oxMcF0A.jar",
         "name" : "google-http-client-protobuf-1.20.0-walfZh2_TWtY2f9oxMcF0A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-http-client-jackson-1.20.0-IMgfjHQPFQkC5I6W0DIOXg.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-http-client-jackson-1.20.0-IMgfjHQPFQkC5I6W0DIOXg.jar",
         "name" : "google-http-client-jackson-1.20.0-IMgfjHQPFQkC5I6W0DIOXg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-auth-1.13.1--lJode6bV2VJBGFjZNH31w.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-auth-1.13.1--lJode6bV2VJBGFjZNH31w.jar",
         "name" : "grpc-auth-1.13.1--lJode6bV2VJBGFjZNH31w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-netty-1.13.1-UqzQPAh0OxkjglQpwEiqZw.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-netty-1.13.1-UqzQPAh0OxkjglQpwEiqZw.jar",
         "name" : "grpc-netty-1.13.1-UqzQPAh0OxkjglQpwEiqZw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-codec-http2-4.1.25.Final-D79cokd_SjqydV7Mbf8h5Q.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-codec-http2-4.1.25.Final-D79cokd_SjqydV7Mbf8h5Q.jar",
         "name" : "netty-codec-http2-4.1.25.Final-D79cokd_SjqydV7Mbf8h5Q.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-codec-http-4.1.25.Final-tufaEwMjr6MgPM2gPyDcGA.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-codec-http-4.1.25.Final-tufaEwMjr6MgPM2gPyDcGA.jar",
         "name" : "netty-codec-http-4.1.25.Final-tufaEwMjr6MgPM2gPyDcGA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-handler-proxy-4.1.25.Final-8iqH8JBLZuFayzORjSZTrg.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-handler-proxy-4.1.25.Final-8iqH8JBLZuFayzORjSZTrg.jar",
         "name" : "netty-handler-proxy-4.1.25.Final-8iqH8JBLZuFayzORjSZTrg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-codec-socks-4.1.25.Final-IxufarC78uSNuAmNDSC3mQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-codec-socks-4.1.25.Final-IxufarC78uSNuAmNDSC3mQ.jar",
         "name" : "netty-codec-socks-4.1.25.Final-IxufarC78uSNuAmNDSC3mQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-handler-4.1.25.Final-MFC7SampYncPwKF1uEr0Zg.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-handler-4.1.25.Final-MFC7SampYncPwKF1uEr0Zg.jar",
         "name" : "netty-handler-4.1.25.Final-MFC7SampYncPwKF1uEr0Zg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-buffer-4.1.25.Final-_6VjzRrpd-n9eoNLswmyaw.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-buffer-4.1.25.Final-_6VjzRrpd-n9eoNLswmyaw.jar",
         "name" : "netty-buffer-4.1.25.Final-_6VjzRrpd-n9eoNLswmyaw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-common-4.1.25.Final-cYwMY1_F2pzboFUnBL3CxQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-common-4.1.25.Final-cYwMY1_F2pzboFUnBL3CxQ.jar",
         "name" : "netty-common-4.1.25.Final-cYwMY1_F2pzboFUnBL3CxQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-transport-4.1.25.Final-3-E9kW1IVWJlpjxjfs5xBA.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-transport-4.1.25.Final-3-E9kW1IVWJlpjxjfs5xBA.jar",
         "name" : "netty-transport-4.1.25.Final-3-E9kW1IVWJlpjxjfs5xBA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-resolver-4.1.25.Final-P7rE-qrpxYHhZqQizPWgXw.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-resolver-4.1.25.Final-P7rE-qrpxYHhZqQizPWgXw.jar",
         "name" : "netty-resolver-4.1.25.Final-P7rE-qrpxYHhZqQizPWgXw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-codec-4.1.25.Final-G3Oiz9gSyF9dZz433dTCAg.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-codec-4.1.25.Final-G3Oiz9gSyF9dZz433dTCAg.jar",
         "name" : "netty-codec-4.1.25.Final-G3Oiz9gSyF9dZz433dTCAg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-stub-1.13.1-WUH7zTsN8ElZKM6DTXA8yA.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-stub-1.13.1-WUH7zTsN8ElZKM6DTXA8yA.jar",
         "name" : "grpc-stub-1.13.1-WUH7zTsN8ElZKM6DTXA8yA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-bigtable-v2-0.19.0-nLHDQSa4P3qyGUcauq0bdA.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-bigtable-v2-0.19.0-nLHDQSa4P3qyGUcauq0bdA.jar",
         "name" : "grpc-google-cloud-bigtable-v2-0.19.0-nLHDQSa4P3qyGUcauq0bdA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-client-1.24.1-gg681AJtNBksr4qHA-I-vw.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-client-1.24.1-gg681AJtNBksr4qHA-I-vw.jar",
         "name" : "google-api-client-1.24.1-gg681AJtNBksr4qHA-I-vw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-http-client-1.24.1-AUcxOBplE7Mmj25k-ITpRg.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-http-client-1.24.1-AUcxOBplE7Mmj25k-ITpRg.jar",
         "name" : "google-http-client-1.24.1-AUcxOBplE7Mmj25k-ITpRg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/httpclient-4.5.3-GWXrt6yg-fj6rtOHDYz2iQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/httpclient-4.5.3-GWXrt6yg-fj6rtOHDYz2iQ.jar",
         "name" : "httpclient-4.5.3-GWXrt6yg-fj6rtOHDYz2iQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/httpcore-4.4.6-qfvVA-CAJQfv7q_7VrvfUg.jar",
+        "location" : "gs://my-dataflow-templates/staging/httpcore-4.4.6-qfvVA-CAJQfv7q_7VrvfUg.jar",
         "name" : "httpcore-4.4.6-qfvVA-CAJQfv7q_7VrvfUg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-codec-1.9-dWFTVmBcgSgBPanjrGKiSQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-codec-1.9-dWFTVmBcgSgBPanjrGKiSQ.jar",
         "name" : "commons-codec-1.9-dWFTVmBcgSgBPanjrGKiSQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-http-client-jackson2-1.24.1-3Vn59Z1-SPaqr-nPJpbB3A.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-http-client-jackson2-1.24.1-3Vn59Z1-SPaqr-nPJpbB3A.jar",
         "name" : "google-http-client-jackson2-1.24.1-3Vn59Z1-SPaqr-nPJpbB3A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-auth-library-credentials-0.10.0-bm_eP5Asph8rD_o40DeuBw.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-auth-library-credentials-0.10.0-bm_eP5Asph8rD_o40DeuBw.jar",
         "name" : "google-auth-library-credentials-0.10.0-bm_eP5Asph8rD_o40DeuBw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-auth-library-oauth2-http-0.10.0-17LetS6EQgEQGxZTc0RPDA.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-auth-library-oauth2-http-0.10.0-17LetS6EQgEQGxZTc0RPDA.jar",
         "name" : "google-auth-library-oauth2-http-0.10.0-17LetS6EQgEQGxZTc0RPDA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-common-protos-1.12.0-czp2EbXX3UpyZdNKHq8vuA.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-common-protos-1.12.0-czp2EbXX3UpyZdNKHq8vuA.jar",
         "name" : "proto-google-common-protos-1.12.0-czp2EbXX3UpyZdNKHq8vuA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-all-1.13.1-ZNxY4JF3BMeVIKs3WDkqMg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-all-1.13.1-ZNxY4JF3BMeVIKs3WDkqMg.jar",
         "name" : "grpc-all-1.13.1-ZNxY4JF3BMeVIKs3WDkqMg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-okhttp-1.13.1-sFdjW-iiLOO6O55LsGw6Qg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-okhttp-1.13.1-sFdjW-iiLOO6O55LsGw6Qg.jar",
         "name" : "grpc-okhttp-1.13.1-sFdjW-iiLOO6O55LsGw6Qg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/okhttp-2.5.0-64v0X4G_nxfR_PsuymOqpg.jar",
+        "location" : "gs://my-dataflow-templates/staging/okhttp-2.5.0-64v0X4G_nxfR_PsuymOqpg.jar",
         "name" : "okhttp-2.5.0-64v0X4G_nxfR_PsuymOqpg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/okio-1.13.0-ibM9N9YWEQH1hh-US4U7jQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/okio-1.13.0-ibM9N9YWEQH1hh-US4U7jQ.jar",
         "name" : "okio-1.13.0-ibM9N9YWEQH1hh-US4U7jQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-protobuf-nano-1.13.1-MxJSAiTWCZsLyZYhUq1cRA.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-protobuf-nano-1.13.1-MxJSAiTWCZsLyZYhUq1cRA.jar",
         "name" : "grpc-protobuf-nano-1.13.1-MxJSAiTWCZsLyZYhUq1cRA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/protobuf-javanano-3.0.0-alpha-5-SsS7fZe7brffHbAGUgRrnw.jar",
+        "location" : "gs://my-dataflow-templates/staging/protobuf-javanano-3.0.0-alpha-5-SsS7fZe7brffHbAGUgRrnw.jar",
         "name" : "protobuf-javanano-3.0.0-alpha-5-SsS7fZe7brffHbAGUgRrnw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-testing-1.13.1-YgV-LG6hgSM4untyiLrAsg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-testing-1.13.1-YgV-LG6hgSM4untyiLrAsg.jar",
         "name" : "grpc-testing-1.13.1-YgV-LG6hgSM4untyiLrAsg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/netty-tcnative-boringssl-static-2.0.8.Final-RCm0wU8kBdzNqqi47Z837A.jar",
+        "location" : "gs://my-dataflow-templates/staging/netty-tcnative-boringssl-static-2.0.8.Final-RCm0wU8kBdzNqqi47Z837A.jar",
         "name" : "netty-tcnative-boringssl-static-2.0.8.Final-RCm0wU8kBdzNqqi47Z837A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/threetenbp-1.3.3-bEXFSgaAYiXSdUtR-98IjQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/threetenbp-1.3.3-bEXFSgaAYiXSdUtR-98IjQ.jar",
         "name" : "threetenbp-1.3.3-bEXFSgaAYiXSdUtR-98IjQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-extensions-google-cloud-platform-core-2.8.0-FcFhXNDsjhpXzch21QXcrg.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-extensions-google-cloud-platform-core-2.8.0-FcFhXNDsjhpXzch21QXcrg.jar",
         "name" : "beam-sdks-java-extensions-google-cloud-platform-core-2.8.0-FcFhXNDsjhpXzch21QXcrg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/gcsio-1.9.0--GlpAPYC1TnjTM3xuPm0rA.jar",
+        "location" : "gs://my-dataflow-templates/staging/gcsio-1.9.0--GlpAPYC1TnjTM3xuPm0rA.jar",
         "name" : "gcsio-1.9.0--GlpAPYC1TnjTM3xuPm0rA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-cloudresourcemanager-v1-rev502-1.24.1-tYKLBozaRwBOnyoYtrQZJg.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-cloudresourcemanager-v1-rev502-1.24.1-tYKLBozaRwBOnyoYtrQZJg.jar",
         "name" : "google-api-services-cloudresourcemanager-v1-rev502-1.24.1-tYKLBozaRwBOnyoYtrQZJg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-runners-google-cloud-dataflow-java-2.8.0-IettiVRhpRURJ4jyX7YGYQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-runners-google-cloud-dataflow-java-2.8.0-IettiVRhpRURJ4jyX7YGYQ.jar",
         "name" : "beam-runners-google-cloud-dataflow-java-2.8.0-IettiVRhpRURJ4jyX7YGYQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-model-pipeline-2.8.0-GEH7JsyWp8gfXaX4qTbHoQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-model-pipeline-2.8.0-GEH7JsyWp8gfXaX4qTbHoQ.jar",
         "name" : "beam-model-pipeline-2.8.0-GEH7JsyWp8gfXaX4qTbHoQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-runners-core-construction-java-2.8.0-Cl_ExW9dDmaXB7Tr2CLWnQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-runners-core-construction-java-2.8.0-Cl_ExW9dDmaXB7Tr2CLWnQ.jar",
         "name" : "beam-runners-core-construction-java-2.8.0-Cl_ExW9dDmaXB7Tr2CLWnQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-model-job-management-2.8.0-vEZIOiTHA9qD44azDTpYHA.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-model-job-management-2.8.0-vEZIOiTHA9qD44azDTpYHA.jar",
         "name" : "beam-model-job-management-2.8.0-vEZIOiTHA9qD44azDTpYHA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-dataflow-v1b3-rev257-1.24.1-A3PXTS9KMIN2FXir4fd22w.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-dataflow-v1b3-rev257-1.24.1-A3PXTS9KMIN2FXir4fd22w.jar",
         "name" : "google-api-services-dataflow-v1b3-rev257-1.24.1-A3PXTS9KMIN2FXir4fd22w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-clouddebugger-v2-rev253-1.24.1-hIkD8ifDW1HHpbYJEydrhg.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-clouddebugger-v2-rev253-1.24.1-hIkD8ifDW1HHpbYJEydrhg.jar",
         "name" : "google-api-services-clouddebugger-v2-rev253-1.24.1-hIkD8ifDW1HHpbYJEydrhg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-io-jdbc-2.8.0-WTvj26rVa_ZIRmGF8c2qOQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-io-jdbc-2.8.0-WTvj26rVa_ZIRmGF8c2qOQ.jar",
         "name" : "beam-sdks-java-io-jdbc-2.8.0-WTvj26rVa_ZIRmGF8c2qOQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/slf4j-api-1.7.25-yq_jdq-3CG3L7nn3gDlMow.jar",
+        "location" : "gs://my-dataflow-templates/staging/slf4j-api-1.7.25-yq_jdq-3CG3L7nn3gDlMow.jar",
         "name" : "slf4j-api-1.7.25-yq_jdq-3CG3L7nn3gDlMow.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-cloud-core-1.36.0-X86nX7aVHm3rJoFKBlSvhw.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-cloud-core-1.36.0-X86nX7aVHm3rJoFKBlSvhw.jar",
         "name" : "google-cloud-core-1.36.0-X86nX7aVHm3rJoFKBlSvhw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/api-common-1.6.0-MS47vK7oXbZDFTmyaX9_0A.jar",
+        "location" : "gs://my-dataflow-templates/staging/api-common-1.6.0-MS47vK7oXbZDFTmyaX9_0A.jar",
         "name" : "api-common-1.6.0-MS47vK7oXbZDFTmyaX9_0A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/gax-1.29.0-g-NpRkHitdtVxlO3LRj8iQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/gax-1.29.0-g-NpRkHitdtVxlO3LRj8iQ.jar",
         "name" : "gax-1.29.0-g-NpRkHitdtVxlO3LRj8iQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-iam-v1-0.12.0-KtsSGk0GwozxZp-QSDLgQQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-iam-v1-0.12.0-KtsSGk0GwozxZp-QSDLgQQ.jar",
         "name" : "proto-google-iam-v1-0.12.0-KtsSGk0GwozxZp-QSDLgQQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/joda-time-2.4-EjHD4J3mql1rbZmCwCJOIA.jar",
+        "location" : "gs://my-dataflow-templates/staging/joda-time-2.4-EjHD4J3mql1rbZmCwCJOIA.jar",
         "name" : "joda-time-2.4-EjHD4J3mql1rbZmCwCJOIA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-storage-v1-rev136-1.24.1--MyUSAjOVijSsA1B41OY-g.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-storage-v1-rev136-1.24.1--MyUSAjOVijSsA1B41OY-g.jar",
         "name" : "google-api-services-storage-v1-rev136-1.24.1--MyUSAjOVijSsA1B41OY-g.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-datastore-v1-0.19.0-fWa-CNGmo6Ekul1TJ7INyQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-datastore-v1-0.19.0-fWa-CNGmo6Ekul1TJ7INyQ.jar",
         "name" : "proto-google-cloud-datastore-v1-0.19.0-fWa-CNGmo6Ekul1TJ7INyQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-cloud-spanner-0.54.0-beta-FmM_ttJaspKvqiBwkTKf8Q.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-cloud-spanner-0.54.0-beta-FmM_ttJaspKvqiBwkTKf8Q.jar",
         "name" : "google-cloud-spanner-0.54.0-beta-FmM_ttJaspKvqiBwkTKf8Q.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-spanner-v1-0.19.0-Pahu5kfUvpm7AsmPv_d9eg.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-spanner-v1-0.19.0-Pahu5kfUvpm7AsmPv_d9eg.jar",
         "name" : "proto-google-cloud-spanner-v1-0.19.0-Pahu5kfUvpm7AsmPv_d9eg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-spanner-admin-instance-v1-0.19.0-Z4dLmb74AjfZ_eM1y7O1mg.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-spanner-admin-instance-v1-0.19.0-Z4dLmb74AjfZ_eM1y7O1mg.jar",
         "name" : "proto-google-cloud-spanner-admin-instance-v1-0.19.0-Z4dLmb74AjfZ_eM1y7O1mg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-spanner-v1-0.19.0-AEAGDZYGHkdgD30rgX5_mg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-spanner-v1-0.19.0-AEAGDZYGHkdgD30rgX5_mg.jar",
         "name" : "grpc-google-cloud-spanner-v1-0.19.0-AEAGDZYGHkdgD30rgX5_mg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-spanner-admin-database-v1-0.19.0-ScurXdS_GxzXBTERdhh9TQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-spanner-admin-database-v1-0.19.0-ScurXdS_GxzXBTERdhh9TQ.jar",
         "name" : "grpc-google-cloud-spanner-admin-database-v1-0.19.0-ScurXdS_GxzXBTERdhh9TQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-spanner-admin-instance-v1-0.19.0-Rw-2e-1R5hWsLapFgYbCpQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-spanner-admin-instance-v1-0.19.0-Rw-2e-1R5hWsLapFgYbCpQ.jar",
         "name" : "grpc-google-cloud-spanner-admin-instance-v1-0.19.0-Rw-2e-1R5hWsLapFgYbCpQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-common-protos-1.12.0-kY92YHJ3__3_EfGz7q7QJQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-common-protos-1.12.0-kY92YHJ3__3_EfGz7q7QJQ.jar",
         "name" : "grpc-google-common-protos-1.12.0-kY92YHJ3__3_EfGz7q7QJQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-netty-shaded-1.13.1-YS-LK7_gIZl0B4Kw_7Rw7A.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-netty-shaded-1.13.1-YS-LK7_gIZl0B4Kw_7Rw7A.jar",
         "name" : "grpc-netty-shaded-1.13.1-YS-LK7_gIZl0B4Kw_7Rw7A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/opencensus-api-0.12.3-MKiYXUtnACUQtjeYR3VDrw.jar",
+        "location" : "gs://my-dataflow-templates/staging/opencensus-api-0.12.3-MKiYXUtnACUQtjeYR3VDrw.jar",
         "name" : "opencensus-api-0.12.3-MKiYXUtnACUQtjeYR3VDrw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/opencensus-contrib-grpc-util-0.12.3-MY0OyB3AQ3OFo6CyAcE8eA.jar",
+        "location" : "gs://my-dataflow-templates/staging/opencensus-contrib-grpc-util-0.12.3-MY0OyB3AQ3OFo6CyAcE8eA.jar",
         "name" : "opencensus-contrib-grpc-util-0.12.3-MY0OyB3AQ3OFo6CyAcE8eA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-spanner-admin-database-v1-0.19.0-DimeE3soBbImHRm7WALbAg.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-spanner-admin-database-v1-0.19.0-DimeE3soBbImHRm7WALbAg.jar",
         "name" : "proto-google-cloud-spanner-admin-database-v1-0.19.0-DimeE3soBbImHRm7WALbAg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/bigtable-beam-import-1.5.0-H0q2t4wItLOLOJvJwp7nxA.jar",
+        "location" : "gs://my-dataflow-templates/staging/bigtable-beam-import-1.5.0-H0q2t4wItLOLOJvJwp7nxA.jar",
         "name" : "bigtable-beam-import-1.5.0-H0q2t4wItLOLOJvJwp7nxA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/bigtable-hbase-beam-1.5.0-Mlj4gJZ-GCVtCyGrFRVeuQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/bigtable-hbase-beam-1.5.0-Mlj4gJZ-GCVtCyGrFRVeuQ.jar",
         "name" : "bigtable-hbase-beam-1.5.0-Mlj4gJZ-GCVtCyGrFRVeuQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-io-hbase-2.5.0-l58hD4dp5k4LR61m0KyPFA.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-io-hbase-2.5.0-l58hD4dp5k4LR61m0KyPFA.jar",
         "name" : "beam-sdks-java-io-hbase-2.5.0-l58hD4dp5k4LR61m0KyPFA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-io-hadoop-file-system-2.5.0-xOlz3fM5jdRtp4X60e9oVA.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-io-hadoop-file-system-2.5.0-xOlz3fM5jdRtp4X60e9oVA.jar",
         "name" : "beam-sdks-java-io-hadoop-file-system-2.5.0-xOlz3fM5jdRtp4X60e9oVA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/beam-sdks-java-io-hadoop-common-2.5.0-ZuyLf9R8pH0DoBPaoajPaQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/beam-sdks-java-io-hadoop-common-2.5.0-ZuyLf9R8pH0DoBPaoajPaQ.jar",
         "name" : "beam-sdks-java-io-hadoop-common-2.5.0-ZuyLf9R8pH0DoBPaoajPaQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/bigtable-hbase-1.x-shaded-1.5.0-W4QOPrKha2iY3dUMBg9g8w.jar",
+        "location" : "gs://my-dataflow-templates/staging/bigtable-hbase-1.x-shaded-1.5.0-W4QOPrKha2iY3dUMBg9g8w.jar",
         "name" : "bigtable-hbase-1.x-shaded-1.5.0-W4QOPrKha2iY3dUMBg9g8w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/hbase-shaded-client-1.4.5-VuAB1YvnCZQWbfA8ngQGcw.jar",
+        "location" : "gs://my-dataflow-templates/staging/hbase-shaded-client-1.4.5-VuAB1YvnCZQWbfA8ngQGcw.jar",
         "name" : "hbase-shaded-client-1.4.5-VuAB1YvnCZQWbfA8ngQGcw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/htrace-core-3.1.0-incubating-xJpGYtaRoJ7tEOCjXdcymQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/htrace-core-3.1.0-incubating-xJpGYtaRoJ7tEOCjXdcymQ.jar",
         "name" : "htrace-core-3.1.0-incubating-xJpGYtaRoJ7tEOCjXdcymQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/log4j-1.2.17-BKQfCgaJhvD3NIXPUHwPQA.jar",
+        "location" : "gs://my-dataflow-templates/staging/log4j-1.2.17-BKQfCgaJhvD3NIXPUHwPQA.jar",
         "name" : "log4j-1.2.17-BKQfCgaJhvD3NIXPUHwPQA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/slf4j-log4j12-1.7.7-TSvp3Jqj0I26naoJ7ZF1Jg.jar",
+        "location" : "gs://my-dataflow-templates/staging/slf4j-log4j12-1.7.7-TSvp3Jqj0I26naoJ7ZF1Jg.jar",
         "name" : "slf4j-log4j12-1.7.7-TSvp3Jqj0I26naoJ7ZF1Jg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/findbugs-annotations-1.3.9-1-cP2lIC652c5PJQ8sK6cRUg.jar",
+        "location" : "gs://my-dataflow-templates/staging/findbugs-annotations-1.3.9-1-cP2lIC652c5PJQ8sK6cRUg.jar",
         "name" : "findbugs-annotations-1.3.9-1-cP2lIC652c5PJQ8sK6cRUg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-logging-1.2-BAtLTY6siG9rSio70vMbAA.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-logging-1.2-BAtLTY6siG9rSio70vMbAA.jar",
         "name" : "commons-logging-1.2-BAtLTY6siG9rSio70vMbAA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/metrics-core-3.1.2-uLLedSRzIqDAN0IPVwjlkg.jar",
+        "location" : "gs://my-dataflow-templates/staging/metrics-core-3.1.2-uLLedSRzIqDAN0IPVwjlkg.jar",
         "name" : "metrics-core-3.1.2-uLLedSRzIqDAN0IPVwjlkg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-bigtable-v2-0.19.0-hYwRnuQXQg2j-h0yOLTnJA.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-bigtable-v2-0.19.0-hYwRnuQXQg2j-h0yOLTnJA.jar",
         "name" : "proto-google-cloud-bigtable-v2-0.19.0-hYwRnuQXQg2j-h0yOLTnJA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/bigtable-client-core-1.5.0-3oXImHD3FdFK87S3khTXDQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/bigtable-client-core-1.5.0-3oXImHD3FdFK87S3khTXDQ.jar",
         "name" : "bigtable-client-core-1.5.0-3oXImHD3FdFK87S3khTXDQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/proto-google-cloud-bigtable-admin-v2-0.19.0-H7OrHkQrnjkk3ZSLyMnDig.jar",
+        "location" : "gs://my-dataflow-templates/staging/proto-google-cloud-bigtable-admin-v2-0.19.0-H7OrHkQrnjkk3ZSLyMnDig.jar",
         "name" : "proto-google-cloud-bigtable-admin-v2-0.19.0-H7OrHkQrnjkk3ZSLyMnDig.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-google-cloud-bigtable-admin-v2-0.19.0-bMozsXfse2H-n0EHKwYepQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-google-cloud-bigtable-admin-v2-0.19.0-bMozsXfse2H-n0EHKwYepQ.jar",
         "name" : "grpc-google-cloud-bigtable-admin-v2-0.19.0-bMozsXfse2H-n0EHKwYepQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-cloud-core-http-1.36.0-OU_N-oK83dcNiotIC3o4MA.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-cloud-core-http-1.36.0-OU_N-oK83dcNiotIC3o4MA.jar",
         "name" : "google-cloud-core-http-1.36.0-OU_N-oK83dcNiotIC3o4MA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-http-client-appengine-1.23.0-gcwUWo40U1qfT2a_BC-D2w.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-http-client-appengine-1.23.0-gcwUWo40U1qfT2a_BC-D2w.jar",
         "name" : "google-http-client-appengine-1.23.0-gcwUWo40U1qfT2a_BC-D2w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/gax-httpjson-0.46.0-RAv2_pWcGtKsWqfQ_60CBw.jar",
+        "location" : "gs://my-dataflow-templates/staging/gax-httpjson-0.46.0-RAv2_pWcGtKsWqfQ_60CBw.jar",
         "name" : "gax-httpjson-0.46.0-RAv2_pWcGtKsWqfQ_60CBw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/opencensus-contrib-http-util-0.12.3-7G0bp61cCuV4xNl7Ok14XA.jar",
+        "location" : "gs://my-dataflow-templates/staging/opencensus-contrib-http-util-0.12.3-7G0bp61cCuV4xNl7Ok14XA.jar",
         "name" : "opencensus-contrib-http-util-0.12.3-7G0bp61cCuV4xNl7Ok14XA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-protobuf-1.13.1-2p3Yhc46YmjpmAi8aLjCYA.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-protobuf-1.13.1-2p3Yhc46YmjpmAi8aLjCYA.jar",
         "name" : "grpc-protobuf-1.13.1-2p3Yhc46YmjpmAi8aLjCYA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-protobuf-lite-1.13.1-y57exuzF5as7dYGQwFo5cg.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-protobuf-lite-1.13.1-y57exuzF5as7dYGQwFo5cg.jar",
         "name" : "grpc-protobuf-lite-1.13.1-y57exuzF5as7dYGQwFo5cg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/grpc-context-1.13.1-zgzmCMymIdeJmkK-CIWEHw.jar",
+        "location" : "gs://my-dataflow-templates/staging/grpc-context-1.13.1-zgzmCMymIdeJmkK-CIWEHw.jar",
         "name" : "grpc-context-1.13.1-zgzmCMymIdeJmkK-CIWEHw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/google-api-services-bigquery-v2-rev374-1.22.0-DOLu5va-_Qdh_gReivsJqA.jar",
+        "location" : "gs://my-dataflow-templates/staging/google-api-services-bigquery-v2-rev374-1.22.0-DOLu5va-_Qdh_gReivsJqA.jar",
         "name" : "google-api-services-bigquery-v2-rev374-1.22.0-DOLu5va-_Qdh_gReivsJqA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/protobuf-java-3.6.0-NDZs0P9eJxX9OraYDJl91w.jar",
+        "location" : "gs://my-dataflow-templates/staging/protobuf-java-3.6.0-NDZs0P9eJxX9OraYDJl91w.jar",
         "name" : "protobuf-java-3.6.0-NDZs0P9eJxX9OraYDJl91w.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/protobuf-java-util-3.3.1-LGun0fggt3QrbJluDdosSw.jar",
+        "location" : "gs://my-dataflow-templates/staging/protobuf-java-util-3.3.1-LGun0fggt3QrbJluDdosSw.jar",
         "name" : "protobuf-java-util-3.3.1-LGun0fggt3QrbJluDdosSw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jsr305-3.0.1-xlMr6z98xUqNc9JdVgK55A.jar",
+        "location" : "gs://my-dataflow-templates/staging/jsr305-3.0.1-xlMr6z98xUqNc9JdVgK55A.jar",
         "name" : "jsr305-3.0.1-xlMr6z98xUqNc9JdVgK55A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/guava-20.0-8yqKJSRiDb7Mn2v2ogwpPw.jar",
+        "location" : "gs://my-dataflow-templates/staging/guava-20.0-8yqKJSRiDb7Mn2v2ogwpPw.jar",
         "name" : "guava-20.0-8yqKJSRiDb7Mn2v2ogwpPw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/json-20160810-L3-Jnwdm5lAXdEpMT8FNRg.jar",
+        "location" : "gs://my-dataflow-templates/staging/json-20160810-L3-Jnwdm5lAXdEpMT8FNRg.jar",
         "name" : "json-20160810-L3-Jnwdm5lAXdEpMT8FNRg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/gson-2.7-UTSiNQ9YiQ_7nbC0AEcZXQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/gson-2.7-UTSiNQ9YiQ_7nbC0AEcZXQ.jar",
         "name" : "gson-2.7-UTSiNQ9YiQ_7nbC0AEcZXQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/auto-value-annotations-1.6-H3K_S5op-0BOL-PtyASTVw.jar",
+        "location" : "gs://my-dataflow-templates/staging/auto-value-annotations-1.6-H3K_S5op-0BOL-PtyASTVw.jar",
         "name" : "auto-value-annotations-1.6-H3K_S5op-0BOL-PtyASTVw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jackson-core-2.8.8--F4OmvZdZE2Qn-LWrMDmTA.jar",
+        "location" : "gs://my-dataflow-templates/staging/jackson-core-2.8.8--F4OmvZdZE2Qn-LWrMDmTA.jar",
         "name" : "jackson-core-2.8.8--F4OmvZdZE2Qn-LWrMDmTA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jackson-databind-2.8.8-SiA6mzJOAJZYaFfSUi0ZuQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/jackson-databind-2.8.8-SiA6mzJOAJZYaFfSUi0ZuQ.jar",
         "name" : "jackson-databind-2.8.8-SiA6mzJOAJZYaFfSUi0ZuQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jackson-annotations-2.8.8-1E2ml2m9llKStJH5nrdyTg.jar",
+        "location" : "gs://my-dataflow-templates/staging/jackson-annotations-2.8.8-1E2ml2m9llKStJH5nrdyTg.jar",
         "name" : "jackson-annotations-2.8.8-1E2ml2m9llKStJH5nrdyTg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-pool2-2.4.2-YnJ6heLhv2p1b1Vx0ZzHHA.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-pool2-2.4.2-YnJ6heLhv2p1b1Vx0ZzHHA.jar",
         "name" : "commons-pool2-2.4.2-YnJ6heLhv2p1b1Vx0ZzHHA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-dbcp2-2.1.1-KYiXseeFuTOwUiNRhxz3rg.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-dbcp2-2.1.1-KYiXseeFuTOwUiNRhxz3rg.jar",
         "name" : "commons-dbcp2-2.1.1-KYiXseeFuTOwUiNRhxz3rg.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-csv-1.5-jhGwTmAloFmOlvPkWVdZbQ.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-csv-1.5-jhGwTmAloFmOlvPkWVdZbQ.jar",
         "name" : "commons-csv-1.5-jhGwTmAloFmOlvPkWVdZbQ.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/avro-1.8.2-EDleWlceGh9hE0EfJ20v6g.jar",
+        "location" : "gs://my-dataflow-templates/staging/avro-1.8.2-EDleWlceGh9hE0EfJ20v6g.jar",
         "name" : "avro-1.8.2-EDleWlceGh9hE0EfJ20v6g.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jackson-core-asl-1.9.13-MZxJpDBOP6n-PNjc_ACdNw.jar",
+        "location" : "gs://my-dataflow-templates/staging/jackson-core-asl-1.9.13-MZxJpDBOP6n-PNjc_ACdNw.jar",
         "name" : "jackson-core-asl-1.9.13-MZxJpDBOP6n-PNjc_ACdNw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/jackson-mapper-asl-1.9.13-F1D5wzk1L8S3KNYbVxcWEw.jar",
+        "location" : "gs://my-dataflow-templates/staging/jackson-mapper-asl-1.9.13-F1D5wzk1L8S3KNYbVxcWEw.jar",
         "name" : "jackson-mapper-asl-1.9.13-F1D5wzk1L8S3KNYbVxcWEw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/paranamer-2.7-VweilzYySf_-OOgYnNb5yw.jar",
+        "location" : "gs://my-dataflow-templates/staging/paranamer-2.7-VweilzYySf_-OOgYnNb5yw.jar",
         "name" : "paranamer-2.7-VweilzYySf_-OOgYnNb5yw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/commons-compress-1.8.1-2GLjD_a114JkZ33NZQeruA.jar",
+        "location" : "gs://my-dataflow-templates/staging/commons-compress-1.8.1-2GLjD_a114JkZ33NZQeruA.jar",
         "name" : "commons-compress-1.8.1-2GLjD_a114JkZ33NZQeruA.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/kafka-clients-1.0.0-5wCjqW4UhrqeOraZI7hQbw.jar",
+        "location" : "gs://my-dataflow-templates/staging/kafka-clients-1.0.0-5wCjqW4UhrqeOraZI7hQbw.jar",
         "name" : "kafka-clients-1.0.0-5wCjqW4UhrqeOraZI7hQbw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/lz4-java-1.4-ZC_EwBoaT4xAvwpaHSec8A.jar",
+        "location" : "gs://my-dataflow-templates/staging/lz4-java-1.4-ZC_EwBoaT4xAvwpaHSec8A.jar",
         "name" : "lz4-java-1.4-ZC_EwBoaT4xAvwpaHSec8A.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/spring-expression-4.3.18.RELEASE-O8O5i076EB6jvz2FmfMrRw.jar",
+        "location" : "gs://my-dataflow-templates/staging/spring-expression-4.3.18.RELEASE-O8O5i076EB6jvz2FmfMrRw.jar",
         "name" : "spring-expression-4.3.18.RELEASE-O8O5i076EB6jvz2FmfMrRw.jar"
       }, {
-        "location" : "gs://gxt-proj1/staging/spring-core-4.3.18.RELEASE-kgwG9UuMImJjPfLeHBd5Tg.jar",
+        "location" : "gs://my-dataflow-templates/staging/spring-core-4.3.18.RELEASE-kgwG9UuMImJjPfLeHBd5Tg.jar",
         "name" : "spring-core-4.3.18.RELEASE-kgwG9UuMImJjPfLeHBd5Tg.jar"
       } ],
       "workerHarnessContainerImage" : "dataflow.gcr.io/v1beta3/beam-java-streaming:beam-2.8.0"
     } ]
   },
-  "name" : "pubsubtobigquery-gxercavins-0113070453-677e6ee0",
+  "name" : "pubsubtobigquery-gxercavins-0113094933-3a7bcfd3",
   "steps" : [ {
     "kind" : "ParallelRead",
     "name" : "s1",
@@ -1172,10 +1172,10 @@
       },
       "display_data" : [ {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "trigger",
+        "key" : "accumulationMode",
         "type" : "STRING",
-        "value" : "ReshuffleTrigger()",
-        "label" : "Trigger"
+        "value" : "DISCARDING_FIRED_PANES",
+        "label" : "Accumulation Mode"
       }, {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
         "key" : "windowFn",
@@ -1185,10 +1185,10 @@
         "label" : "Windowing Function"
       }, {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "accumulationMode",
+        "key" : "trigger",
         "type" : "STRING",
-        "value" : "DISCARDING_FIRED_PANES",
-        "label" : "Accumulation Mode"
+        "value" : "ReshuffleTrigger()",
+        "label" : "Trigger"
       } ],
       "parallel_input" : {
         "@type" : "OutputReference",
@@ -1416,17 +1416,17 @@
       },
       "display_data" : [ {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
+        "key" : "accumulationMode",
+        "type" : "STRING",
+        "value" : "DISCARDING_FIRED_PANES",
+        "label" : "Accumulation Mode"
+      }, {
+        "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
         "key" : "windowFn",
         "type" : "JAVA_CLASS",
         "value" : "org.apache.beam.sdk.transforms.windowing.GlobalWindows",
         "shortValue" : "GlobalWindows",
         "label" : "Windowing Function"
-      }, {
-        "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "accumulationMode",
-        "type" : "STRING",
-        "value" : "DISCARDING_FIRED_PANES",
-        "label" : "Accumulation Mode"
       } ],
       "parallel_input" : {
         "@type" : "OutputReference",
@@ -1947,10 +1947,10 @@
       },
       "display_data" : [ {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "trigger",
+        "key" : "accumulationMode",
         "type" : "STRING",
-        "value" : "ReshuffleTrigger()",
-        "label" : "Trigger"
+        "value" : "DISCARDING_FIRED_PANES",
+        "label" : "Accumulation Mode"
       }, {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
         "key" : "windowFn",
@@ -1960,10 +1960,10 @@
         "label" : "Windowing Function"
       }, {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "accumulationMode",
+        "key" : "trigger",
         "type" : "STRING",
-        "value" : "DISCARDING_FIRED_PANES",
-        "label" : "Accumulation Mode"
+        "value" : "ReshuffleTrigger()",
+        "label" : "Trigger"
       } ],
       "parallel_input" : {
         "@type" : "OutputReference",
@@ -2191,17 +2191,17 @@
       },
       "display_data" : [ {
         "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
+        "key" : "accumulationMode",
+        "type" : "STRING",
+        "value" : "DISCARDING_FIRED_PANES",
+        "label" : "Accumulation Mode"
+      }, {
+        "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
         "key" : "windowFn",
         "type" : "JAVA_CLASS",
         "value" : "org.apache.beam.sdk.transforms.windowing.GlobalWindows",
         "shortValue" : "GlobalWindows",
         "label" : "Windowing Function"
-      }, {
-        "namespace" : "org.apache.beam.sdk.transforms.windowing.Window$Assign",
-        "key" : "accumulationMode",
-        "type" : "STRING",
-        "value" : "DISCARDING_FIRED_PANES",
-        "label" : "Accumulation Mode"
       } ],
       "parallel_input" : {
         "@type" : "OutputReference",
