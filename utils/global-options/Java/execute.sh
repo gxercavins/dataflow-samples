@@ -1,7 +1,7 @@
 #!/bin/bash
 
 JOB_NAME=global-options
-BUCKET=BUCKET_NAME
+BUCKET=gxt-proj1
 TEMPLATE_NAME=java_options
 
 gcloud dataflow jobs run $JOB_NAME \
