@@ -89,11 +89,11 @@ Finally, we add all the ones to obtain the total number of messages for the wind
     }
 ```
 
-This should result in something like: [![enter image description here][1]][1]
+This should result in something like: 
+![Screenshot from 2019-02-05 21-52-09](https://user-images.githubusercontent.com/29493411/54085666-bd099300-4340-11e9-87dc-eaba15b3d65c.png)
 
 When there is no data we will still see "Number of messages: 0" as desired. Note that results from different windows can come slightly unordered.
 
-  [1]: https://i.stack.imgur.com/hcl0d.
 
 ## License
 
