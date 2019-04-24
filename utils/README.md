@@ -12,6 +12,7 @@ Each folder contains specific instructions for the corresponding example.
 * **BigQuery Null Values (Java)**: how to write records with `Null` values to BigQuery using Dataflow.
 * **BigQuery Results to CSV (Python)**: how to write BigQuery results to GCS in CSV format.
 * **Enrich with BigQuery (Java)**: how to read BigQuery data within an intermediate step to enrich an existing PCollection.
+* **Escaping commas (Bash)**: how to pass a comma as a parameter when invoking a template.
 * **Global Options (Java + Python)**: access template custom options globally.
 * **Input Filenames (Java)**: how to process files according to their format (i.e. CSV or XML).
 * **PubSub to BigQuery Template (Java)**: adapt the official template to use an input subscription instead of topic.
