@@ -1,6 +1,5 @@
 package org.apache.beam.examples;
 
-import com.google.common.util.concurrent.RateLimiter;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,9 +31,9 @@ import com.google.cloud.language.spi.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.Sentiment;
 
 
-public class WordCount {
+public class ThrottleStep {
 
-  private static final Logger Log = LoggerFactory.getLogger(WordCount.class);
+  private static final Logger Log = LoggerFactory.getLogger(ThrottleStep.class);
 
   static class OmitEmptyLines extends DoFn<String, String> {
 
@@ -46,7 +45,7 @@ public class WordCount {
       }
   }
 
-  public interface WordCountOptions extends DataflowPipelineOptions {
+  public interface ThrottleStepOptions extends DataflowPipelineOptions {
 
     /**
      * By default, this example reads from a public dataset containing the text of
@@ -66,9 +65,7 @@ public class WordCount {
     void setOutput(String value);
   }
 
-  private static RateLimiter limiter;
-
-  static void runWordCount(WordCountOptions options) {
+  static void runThrottleStep(ThrottleStepOptions options) {
 
     Pipeline p = Pipeline.create(options);
 
@@ -113,7 +110,7 @@ public class WordCount {
                   Sentiment sentiment = language.analyzeSentiment(doc).getDocumentSentiment();                 
                   String nlp_results = String.format("Sentiment: score %s, magnitude %s", sentiment.getScore(), sentiment.getMagnitude());
 
-                  TimeUnit.SECONDS.sleep(sleep_time.intValue()); // 12s, 3 workers, n1-standard-4
+                  TimeUnit.SECONDS.sleep(sleep_time.intValue()); // i.e 12s for 3 workers, n1-standard-4
 
                   Log.info(nlp_results);
                   c.output(nlp_results);
@@ -126,9 +123,9 @@ public class WordCount {
   }
 
   public static void main(String[] args) {
-    WordCountOptions options = PipelineOptionsFactory.fromArgs(args).withValidation()
-      .as(WordCountOptions.class);
+    ThrottleStepOptions options = PipelineOptionsFactory.fromArgs(args).withValidation()
+      .as(ThrottleStepOptions.class);
 
-    runWordCount(options);
+    runThrottleStep(options);
   }
 }
