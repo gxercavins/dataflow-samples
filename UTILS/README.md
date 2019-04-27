@@ -15,6 +15,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Escaping commas (Bash)**: how to pass a comma as a parameter when invoking a template.
 * **Global Options (Java + Python)**: access template custom options globally.
 * **Input Filenames (Java)**: how to process files according to their format (i.e. CSV or XML).
+* **Longest Row (Python)**: how to find the record with more words in a file using the `Top` transform.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
 * **Pub/Sub to BigQuery Template (Java)**: adapt the official template to use an input subscription instead of topic.
 * **ReadAllFromText templated (Python)**: how to use template parameters with ReadAllFromText.
