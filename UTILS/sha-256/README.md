@@ -51,8 +51,6 @@ Which we can verify with an online hashing [tool][1]:
   [1]: https://md5file.com/calculator
   [2]: https://i.stack.imgur.com/0j7l3.png
 
-```
-
 ## License
 
 These examples are provided under the Apache License 2.0.
