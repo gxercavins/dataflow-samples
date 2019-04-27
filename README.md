@@ -22,6 +22,7 @@ Currently, these are the examples available:
 * **Normalize values (Python)**: normalize all PCollection values after calculating the maximum and minimum per each key.
 * **Quick, Draw! dataset (Python)**: download raw data from a public dataset, convert to images and save them in `png` format.
 * **RegEx pattern (Java)**: tag every path pattern and be able to associate each matched file with it.
+* **Session windows (Python)**: example to demonstrate how to group events per user and session.
 * **When are Pub/Sub messages ACKed? (Java)**: example to see what happens with `PubsubIO` in Dataflow.
 * **With Timestamps (Java)**: assign processing time as element timestamp and shift to the past if needed.
 
