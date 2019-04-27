@@ -19,6 +19,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Pub/Sub to BigQuery Template (Java)**: adapt the official template to use an input subscription instead of topic.
 * **ReadAllFromText templated (Python)**: how to use template parameters with ReadAllFromText.
 * **Retrieve Job ID (Python)**: how to retrieve the Job ID from within the job pipeline.
+* **SHA-256 (Java)**: how to calculate SHA-256 Hash of each file.
 * **Stop Job (Python)**: how to programmatically stop a Dataflow job using the Python Google API Client Library.
 * **Understanding Wall Time (Java)**: quick idea to visualize wall time.
 * **Which SDK? (Python)**: how to retrieve the list of jobs with specific SDK versions.
