@@ -29,7 +29,7 @@ Currently, these are the examples available:
 
 In addition, the `UTILS` folder contains simple Dataflow snippets: adding labels, stopping jobs programmatically, process files selectively according to their format, understanding wall time, ensuring custom options are globally available, retrieving job ID or SDK version, writing BigQuery results in CSV format, enrich a PCollection with data from a BigQuery table, etc.
 
-The `PLAYGROUND` folder contains other more experimental examples that can be interesting to share such as trying to zip a PCollection or throttling a step.
+The `PLAYGROUND` folder contains other more experimental examples that can be interesting to share such as trying to zip a PCollection, throttling a step or BeamSQL tests.
 
 ## License
 
