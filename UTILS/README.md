@@ -19,6 +19,7 @@ Each folder contains specific instructions for the corresponding example.
 * **One Row, One File (Java)**: write each row/record to a different output file.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
 * **Pub/Sub to BigQuery Template (Java)**: adapt the official template to use an input subscription instead of topic.
+* **Pub/Sub and Windowing (Scala)**: testing streaming pipelines with Spotify's Scio.
 * **ReadAllFromText templated (Python)**: how to use template parameters with ReadAllFromText.
 * **Retrieve Job ID (Python)**: how to retrieve the Job ID from within the job pipeline.
 * **SHA-256 (Java)**: how to calculate SHA-256 Hash of each file.
