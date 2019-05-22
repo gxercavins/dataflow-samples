@@ -17,6 +17,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Input Filenames (Java)**: how to process files according to their format (i.e. CSV or XML).
 * **Longest Row (Python)**: how to find the record with more words in a file using the `Top` transform.
 * **One Row, One File (Java)**: write each row/record to a different output file.
+* **One Window, One File (Python)**: write elements from each window to a different output file.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
 * **Pub/Sub to BigQuery Template (Java)**: adapt the official template to use an input subscription instead of topic.
 * **Pub/Sub and Windowing (Scala)**: testing streaming pipelines with Spotify's Scio.
