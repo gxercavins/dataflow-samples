@@ -24,6 +24,7 @@ Currently, these are the examples available:
 * **Quick, Draw! dataset (Python)**: download raw data from a public dataset, convert to images and save them in `png` format.
 * **RegEx pattern (Java)**: tag every path pattern and be able to associate each matched file with it.
 * **Session windows (Python)**: example to demonstrate how to group events per user and session.
+* **Timestamps in path (Java)**: process hourly files where timestamp needs to be inferred from folder structure.
 * **When are Pub/Sub messages ACKed? (Java)**: example to see what happens with `PubsubIO` in Dataflow.
 * **With Timestamps (Java)**: assign processing time as element timestamp and shift to the past if needed.
 
