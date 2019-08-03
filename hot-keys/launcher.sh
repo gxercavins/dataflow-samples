@@ -40,7 +40,7 @@ do
 	5)  MAIN_CLASS=CountQuestions
 	    FOLDER=count
 	    ;;
-	6)  MAIN_CLASS=ChangeIngest
+	6)  MAIN_CLASS=ChangeIngestion
 	    FOLDER=from-query
 	    ;;
 	7)  MAIN_CLASS=SimpleHotKeyFanout
