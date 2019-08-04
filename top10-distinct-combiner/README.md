@@ -1,4 +1,4 @@
-# Title
+# Top 10 Distinct Combiner
 
 The built-in `TopCombineFn` combine function can be used to calculate the top N users/keys according to a `compare` criterium that we specify. The problem, as evinced in this [StackOverflow question](https://stackoverflow.com/questions/56616576/apache-beam-python-how-to-get-the-top-10-elements-of-a-pcollection-with-accu/), is that, when using a triggering+accumulation strategy, old values from the same user can still appear in the top instead of being replaced by the new ones.
 
@@ -83,7 +83,7 @@ It might look overwhelming but I only added the few lines of code, that I alread
 
 As an example, `Bob` was leading with 9 points and, when the next update comes, his score is up to 11 points. He'll appear in the next recap with only the updated score and no duplicate (as detected via our logging). The entry with 9 points will not appear anymore and the top will still have 10 users as desired. Likewise for `Marta`. I noted that older scores still appear in the heap even if not in the top 10 but I am not sure how garbage collection works with `heapq`.
 
-```python
+```
 INFO:root:>>> Current top 10: [('Bob', 9), ('Connor', 8), ('Eva', 7), ('Hugo', 7), ('Paul', 6), ('Kevin', 6), ('Laura', 6), ('Marta', 6), ('Diane', 4), ('Bacon', 4)]
 ...
 INFO:root:Duplicate: Marta,8 --- Marta,6
