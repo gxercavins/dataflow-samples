@@ -2,7 +2,7 @@
 
 if [ "$#" -ne 2 ]; then
    echo "Please specify the Project ID and GCS Bucket Name"
-   echo "Usage:   ./run.sh project-id bucket-name"
+   echo "Usage:   ./launcher.sh project-id bucket-name"
    exit
 fi
 
