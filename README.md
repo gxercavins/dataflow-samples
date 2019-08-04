@@ -25,6 +25,7 @@ Currently, these are the examples available:
 * **RegEx pattern (Java)**: tag every path pattern and be able to associate each matched file with it.
 * **Session windows (Python)**: example to demonstrate how to group events per user and session.
 * **Timestamps in path (Java)**: process hourly files where timestamp needs to be inferred from folder structure.
+* **Top10 distinct combiner (Python)**: we'll modify `TopCombineFn` to have unique keys when accumulating fired panes.
 * **When are Pub/Sub messages ACKed? (Java)**: example to see what happens with `PubsubIO` in Dataflow.
 * **With Timestamps (Java)**: assign processing time as element timestamp and shift to the past if needed.
 
