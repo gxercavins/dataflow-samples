@@ -19,6 +19,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Longest Row (Python)**: how to find the record with more words in a file using the `Top` transform.
 * **Map Elements (Java)**: how to apply the `MapElements` transform.
 * **Map vs ParDo (Python)**: how to call the same function with `Beam.Map` and `Beam.ParDo`.
+* **Multiple Topics (Java)**: pass as input option a comma-separated list of Pub/Sub topics.
 * **One Row, One File (Java)**: write each row/record to a different output file.
 * **One Window, One File (Python)**: write elements from each window to a different output file.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
