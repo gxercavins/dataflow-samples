@@ -22,6 +22,7 @@ import org.apache.beam.sdk.transforms.ParDo;
 import org.apache.beam.sdk.transforms.SimpleFunction;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class InitialExample {
@@ -54,7 +55,8 @@ public class InitialExample {
         @ProcessElement
         public void processElement(ProcessContext c) {
             TableRow row = c.element();
-            String[] tags = row.get("tags").toString().split("\\|");
+            String rawTags = row.get("tags").toString();
+            String[] tags = StringUtils.substringsBetween(rawTags, "<", ">");
 
             for (String tag:tags) 
             { 
