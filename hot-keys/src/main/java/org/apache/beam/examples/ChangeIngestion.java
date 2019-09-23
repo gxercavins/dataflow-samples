@@ -62,7 +62,7 @@ public class ChangeIngestion {
 
         String query = "SELECT tag, title\n"
                      + "FROM `bigquery-public-data.stackoverflow.posts_questions` AS questions\n"
-                     + "CROSS JOIN UNNEST(split(questions.tags,'|')) AS tag\n"
+                     + "CROSS JOIN UNNEST(REGEXP_EXTRACT_ALL(questions.tags,\"<(.*?)>\")) AS tag\n"
                      + "WHERE tag IN ('java', 'google-cloud-dataflow', 'google-bigquery', 'google-cloud-storage',\n"
                      + "              'apache-beam', 'apache-beam-io', 'google-cloud-platform', 'google-cloud-pubsub', 'spotify-scio')";
 

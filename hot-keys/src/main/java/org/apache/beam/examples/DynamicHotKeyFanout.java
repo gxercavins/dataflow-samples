@@ -27,7 +27,7 @@ import org.apache.beam.sdk.transforms.View;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
 import org.apache.beam.sdk.values.PCollectionView;
-
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -120,7 +120,8 @@ public class DynamicHotKeyFanout {
             TableRow row = c.element();
             row.remove("body");
             row.remove("title");
-            String[] tags = row.get("tags").toString().split("\\|");
+            String rawTags = row.get("tags").toString();
+            String[] tags = StringUtils.substringsBetween(rawTags, "<", ">");
 
             List<TableRow> hotTagList = c.sideInput(hotTags);
 
@@ -145,7 +146,7 @@ public class DynamicHotKeyFanout {
 
         String query = "SELECT tag\n"
                      + "FROM `bigquery-public-data.stackoverflow.posts_questions` AS questions\n"
-                     + "CROSS JOIN UNNEST(split(questions.tags,'|')) AS tag\n"
+                     + "CROSS JOIN UNNEST(REGEXP_EXTRACT_ALL(questions.tags,\"<(.*?)>\")) AS tag\n"
                      + "GROUP BY tag\n"
                      + "HAVING COUNT(*) > 10000";
 
@@ -164,7 +165,6 @@ public class DynamicHotKeyFanout {
                     public Integer apply(String key) {
                         // Check if key is hot
                         Boolean isHotKey = key.split("\\|").length > 1;
-                        //Log.info(String.format("key = %s, fanout = %d", key, isHotKey ? 10 : 1));
                         return isHotKey ? 10 : 1;
                 }}))
                 .setCoder(KvCoder.of(StringUtf8Coder.of(), StringUtf8Coder.of()))

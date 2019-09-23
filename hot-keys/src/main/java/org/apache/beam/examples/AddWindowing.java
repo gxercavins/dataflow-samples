@@ -25,6 +25,7 @@ import org.apache.beam.sdk.transforms.windowing.CalendarWindows;
 import org.apache.beam.sdk.transforms.windowing.Window;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 
@@ -60,7 +61,8 @@ public class AddWindowing {
         @ProcessElement
         public void processElement(ProcessContext c) {
             TableRow row = c.element();
-            String[] tags = row.get("tags").toString().split("\\|");
+            String rawTags = row.get("tags").toString();
+            String[] tags = StringUtils.substringsBetween(rawTags, "<", ">");
 
             for (String tag:tags) 
             { 

@@ -22,6 +22,7 @@ import org.apache.beam.sdk.transforms.ParDo;
 import org.apache.beam.sdk.transforms.SimpleFunction;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class HierarchicalKeys {
@@ -55,7 +56,9 @@ public class HierarchicalKeys {
         @ProcessElement
         public void processElement(ProcessContext c) {
             TableRow row = c.element();
-            String[] tags = row.get("tags").toString().split("\\|");
+            String rawTags = row.get("tags").toString();
+            String[] tags = StringUtils.substringsBetween(rawTags, "<", ">");
+            
             String popularity, has_accepted_answer, score, ordered_tags;
             popularity = has_accepted_answer = score = ordered_tags = "";
             Boolean emit = false;
