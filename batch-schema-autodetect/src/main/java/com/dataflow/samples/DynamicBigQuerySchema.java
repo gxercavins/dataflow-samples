@@ -42,8 +42,6 @@ public class DynamicBigQuerySchema {
 
   private static final Logger LOG = LoggerFactory.getLogger(DynamicBigQuerySchema.class);
 
-  // public static TableSchema schema;
-
   public static void main(String[] args) {
     PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().as(PipelineOptions.class);
 
@@ -60,7 +58,7 @@ public class DynamicBigQuerySchema {
     PCollectionView<Map<String, String>> schemaSideInput = input  
       .apply("Build schema", ParDo.of(new DoFn<KV<Integer, String>, KV<String, String>>() {
 
-        // A state cell holding a single Integer per key+window
+        // A map containing field-type pairs
         @StateId("schema")
         private final StateSpec<ValueState<Map<String, String>>> schemaSpec =
             StateSpecs.value(MapCoder.of(StringUtf8Coder.of(), StringUtf8Coder.of()));
@@ -84,7 +82,8 @@ public class DynamicBigQuerySchema {
                   }
                   catch(Exception e) {}
 
-                  // System.out.println("key: "+ key + " value: " + value + " type: " + type);
+                  // uncomment if debugging is needed
+                  // LOG.info("key: "+ key + " value: " + value + " type: " + type);
 
                   c.output(KV.of(key, type));
                   current.put(key, type); 
@@ -117,7 +116,7 @@ public class DynamicBigQuerySchema {
                 throw new RuntimeException(e);
             }
 
-            c.output(ImmutableMap.of("gxt-proj1:dataflow_test.dynamic_bq_schema", jsonSchema));
+            c.output(ImmutableMap.of("PROJECT_ID:DATASET_NAME.dynamic_bq_schema", jsonSchema));
 
           }}).withSideInputs(schemaSideInput))
       .apply("Save as Singleton", View.asSingleton());
@@ -138,7 +137,7 @@ public class DynamicBigQuerySchema {
             c.output(row);
           }}))
       .apply( BigQueryIO.writeTableRows()
-          .to("gxt-proj1:dataflow_test.dynamic_bq_schema")
+          .to("PROJECT_ID:DATASET_NAME.dynamic_bq_schema")
           .withSchemaFromView(schemaView)
           .withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_IF_NEEDED)
           .withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND));
