@@ -15,6 +15,7 @@ Use the below button to clone this repository into Cloud Shell and start right a
 Currently, these are the examples available:
 
 * **Adaptive triggers (Java)**: modify the behavior of triggers at the start and end of the same window so that you can have some degree of control on the output rate.
+* **Assign sessions (Java)**: assign timestamped events into a given list of all possible sessions. 
 * **Batch Schema auto-detect (Java)**: how to load multiple JSON files with disparate schemas into BigQuery.
 * **BigQuery dead letters (Python)**: how to handle rows that could not be correctly streamed into BigQuery.
 * **BigQuery Storage API (Java)**: how to read directly from a BigQuery table using the new Storage API.
