@@ -1,6 +1,6 @@
 # Beam patterns
 
-This repository contains common usage patterns featured in the official [Beam documentation](https://beam.apache.org/documentation/patterns/overview/).
+This folder contains common usage patterns featured in the official [Beam documentation](https://beam.apache.org/documentation/patterns/overview/).
 
 ## Examples
 
