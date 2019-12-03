@@ -33,7 +33,7 @@ Currently, these are the examples available:
 * **When are Pub/Sub messages ACKed? (Java)**: example to see what happens with `PubsubIO` in Dataflow.
 * **With Timestamps (Java)**: assign processing time as element timestamp and shift to the past if needed.
 
-In addition, the `UTILS` folder contains simple Dataflow snippets: adding labels, stopping jobs programmatically, process files selectively according to their format, understanding wall time, ensuring custom options are globally available, retrieving job ID or SDK version, writing BigQuery results in CSV format, enrich a PCollection with data from a BigQuery table, etc.
+In addition, the `UTILS` folder contains simple Dataflow snippets: adding labels, stopping jobs programmatically, process files selectively according to their format, understanding wall time, ensuring custom options are globally available, retrieving job ID or SDK version, writing BigQuery results in CSV format, enrich a PCollection with data from a BigQuery table, processing files using Pub/Sub notifications for GCS, etc.
 
 The `PLAYGROUND` folder contains other more experimental examples that can be interesting to share such as trying to zip a PCollection, throttling a step or BeamSQL tests.
 
