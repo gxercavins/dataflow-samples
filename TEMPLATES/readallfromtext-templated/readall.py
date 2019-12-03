@@ -26,11 +26,11 @@ def run(argv=None):
   pipeline_options.view_as(SetupOptions).save_main_session = True
   p = beam.Pipeline(options=pipeline_options)
 
-  p
+  (p
     | 'Create' >> beam.Create(['Start!']) # just to kickstart the pipeline
     | 'Read Input Parameter' >> beam.Map(lambda x: custom_options.input.get()) # Map will accept the template parameter
     | 'Read All Files' >> beam.io.ReadAllFromText()
-    | 'Write Results' >> WriteToText("gs://BUCKET-NAME/path/to/output.txt")
+    | 'Write Results' >> WriteToText("gs://BUCKET-NAME/path/to/output.txt"))
 
   result = p.run()
   result.wait_until_finish()

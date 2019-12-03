@@ -22,13 +22,10 @@ public class OptionsInParDo {
   static String orgId;
 
   public interface MyOptions extends PipelineOptions {
-
-
      @Description("Org Id")
      @Default.String("123-984-a")
      ValueProvider<String> getOrgId();
      void setOrgId(ValueProvider<String> orgID);
-
   }
 
   static class CustomFn extends DoFn<String, String> {
@@ -39,36 +36,29 @@ public class OptionsInParDo {
       }
 
       @ProcessElement
-      public void processElement( ProcessContext c ) {
-          LOG.info( "Hello? " );
-          LOG.info( "ORG ID: " + orgId.get() );
+      public void processElement(ProcessContext c) {
+          LOG.info("Hello? ");
+          LOG.info("ORG ID: " + orgId.get());
       }
   }
 
   public static void main(String[] args) {
 
+    PipelineOptionsFactory.register(MyOptions.class);
 
-     PipelineOptionsFactory.register(MyOptions.class);
+    final MyOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().create()
+        .as(MyOptions.class);
 
+    ValueProvider<String> orgId = options.getOrgId();
+    LOG.info("orgId: " + orgId);
 
-     final MyOptions options = PipelineOptionsFactory.fromArgs( args ).withValidation().create()
-        .as( MyOptions.class );
+    Pipeline p = Pipeline.create(options);
 
-
-     ValueProvider<String> orgId = options.getOrgId();
-
-     LOG.info( "orgId: " + orgId );
-
-     Pipeline p = Pipeline.create( options );
-
-
-     PCollection<String> someDataRows = p.apply("Test data", Create.of(
-
+    PCollection<String> someDataRows = p.apply("Test data", Create.of(
       "string 1", "string2", "string 3"
+    ));
 
-     ) );
-
-     someDataRows.apply( "Package into a list", ParDo.of( new CustomFn(orgId)));
+    someDataRows.apply("Package into a list", ParDo.of(new CustomFn(orgId)));
 
     p.run();
   }

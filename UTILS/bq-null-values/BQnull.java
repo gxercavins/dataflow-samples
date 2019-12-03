@@ -33,27 +33,24 @@ public class BQnull {
 		fields.add(new TableFieldSchema().setName("org_id").setType("STRING").setMode("NULLABLE"));
 		TableSchema schema = new TableSchema().setFields(fields);
 		
-	  p
-	  .apply( "kicker", Create.of( "Kick!" ) )
-	  .apply( "Read values", ParDo.of( new DoFn<String, TableRow>() {
-	     @ProcessElement
-	     public void procesElement( ProcessContext c ) {
+		p
+			.apply( "kicker", Create.of( "Kick!" ) )
+			.apply( "Read values", ParDo.of( new DoFn<String, TableRow>() {
+					@ProcessElement
+					public void procesElement( ProcessContext c ) {
+						TableRow row = new TableRow();
 	
-	        TableRow row = new TableRow();
+						row.set( "ev_id",       "2323423423" );
+						row.set( "customer_id", "111111"     );
+						// row.set( "org_id",     Null        ); // Without this line, no NPE
+						c.output( row );  	
+					}}))
+			.apply( BigQueryIO.writeTableRows()
+				.to("PROJECT_ID:DATASET.TABLE")
+				.withSchema(schema)
+				.withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
+				.withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND));
 	
-	        row.set( "ev_id",       "2323423423" );
-	        row.set( "customer_id", "111111"     );
-	        // row.set( "org_id",     Null        ); // Without this line, no NPE
-	        c.output( row );  
-	
-	
-	     } }) )
-	     .apply( BigQueryIO.writeTableRows()
-	        .to("PROJECT_ID:DATASET.TABLE")
-	        .withSchema(schema)
-	        .withCreateDisposition(BigQueryIO.Write.CreateDisposition.CREATE_NEVER)
-	        .withWriteDisposition(BigQueryIO.Write.WriteDisposition.WRITE_APPEND));
-	
-	  p.run();
+		p.run();
 	}
 }

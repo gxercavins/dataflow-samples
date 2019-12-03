@@ -51,21 +51,21 @@ public class NonStandardDelimiters {
 
 		// Build the table schema for the output table.
 		List<TableFieldSchema> fields = new ArrayList<>();
-        fields.add(new TableFieldSchema().setName("data").setType("STRING"));
+		fields.add(new TableFieldSchema().setName("data").setType("STRING"));
 		TableSchema schema = new TableSchema().setFields(fields);
 
 		p
 			.apply("GetMessages", TextIO.read().from(file))
-            .apply("ExtractRows", ParDo.of(new DoFn<String, String>() {
-		        @ProcessElement
-		        public void processElement(ProcessContext c) {
-		          for (String line : c.element().split(delimiter.get().replace("\\", "\\\\"))) {
-		            if (!line.isEmpty()) {
-		              c.output(line);
-		            }
-		          }
-		        }
-		    }))
+			.apply("ExtractRows", ParDo.of(new DoFn<String, String>() {
+				@ProcessElement
+				public void processElement(ProcessContext c) {
+					for (String line : c.element().split(delimiter.get().replace("\\", "\\\\"))) {
+						if (!line.isEmpty()) {
+							c.output(line);
+						}
+					}
+				}
+			}))
 			.apply("ToBQRow", ParDo.of(new DoFn<String, TableRow>() {
 				@ProcessElement
 				public void processElement(ProcessContext c) throws Exception {
