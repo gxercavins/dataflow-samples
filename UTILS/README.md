@@ -24,6 +24,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
 * **Pub/Sub and Windowing (Scala)**: testing streaming pipelines with Spotify's Scio.
 * **Retrieve Job ID (Python)**: how to retrieve the Job ID from within the job pipeline.
+* **Re-windowing (Python)**: how to apply a global window to elements that are already windowed.
 * **SHA-256 (Java)**: how to calculate SHA-256 Hash of each file.
 * **Stop Job (Python)**: how to programmatically stop a Dataflow job using the Python Google API Client Library.
 * **Understanding Wall Time (Java)**: quick idea to visualize wall time.
