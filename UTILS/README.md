@@ -20,6 +20,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Multiple Topics (Java)**: pass as input option a comma-separated list of Pub/Sub topics.
 * **One Row, One File (Java)**: write each row/record to a different output file.
 * **One Window, One File (Python)**: write elements from each window to a different output file.
+* **Pub/Sub get attribute (Java)**: how to retrieve a message attribute.
 * **Pub/Sub notifications (Python)**: how to process data that has just been uploaded to GCS.
 * **Pub/Sub publish time (Java)**: how to get message publish time in Dataflow.
 * **Pub/Sub and Windowing (Scala)**: testing streaming pipelines with Spotify's Scio.
