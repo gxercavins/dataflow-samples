@@ -11,6 +11,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Add Labels (Java)**: how to add labels (in code) to the job in order to track expenses in the Billing Export.
 * **BigQuery Null Values (Java)**: how to write records with `Null` values to BigQuery using Dataflow.
 * **BigQuery Results to CSV (Python)**: how to write BigQuery results to GCS in CSV format.
+* **Corrupt Zip Match (Java)**: how to catch which file throws an exception when reading glob matches.
 * **Dynamic BigQuery Writes (Java + Python)**: how to write to different BigQuery tables according to data.
 * **Enrich with BigQuery (Java)**: how to read BigQuery data within an intermediate step to enrich an existing PCollection.
 * **Input Filenames (Java)**: how to process files according to their format (i.e. CSV or XML).
