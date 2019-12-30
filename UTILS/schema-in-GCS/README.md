@@ -1,15 +1,17 @@
 # Schema in GCS file
 
-In this example, originally written as an [answer](https://stackoverflow.com/a/59504952/6121516) to a StackOverflow question, we want to use an auxiliary schema stored in GCS. We'll explore two ways to do so: using side inputs and the start bundle method.
+In this example, originally written as an [answer](https://stackoverflow.com/a/59504952/6121516) to a StackOverflow question, we want to use a schema stored in GCS to incorporate it into our data. We'll explore two ways to do so: using side inputs and the start bundle method.
 
 ## Example
 
-We'll download a BigQuery schema from a public table and upload it to GCS:
+To start, we'll download a BigQuery schema from a public table (`schema.json`) and upload it to GCS:
 
 ```bash
 bq show --schema bigquery-public-data:usa_names.usa_1910_current > schema.json
 gsutil cp schema.json gs://$BUCKET
 ```
+
+We can pretty print it using `json.tool`:
 
 ```bash
 $ python3 -m json.tool < schema.json
@@ -47,7 +49,7 @@ $ python3 -m json.tool < schema.json
 ]
 ```
 
-Our data will be some csv rows without headers so that we have to use the GCS schema:
+Our input data will be some schema-less rows in csv format so that we have to use the auxiliary GCS schema:
 
 ```python
 data = [('NC', 'F', 2020, 'Hello', 3200),
@@ -65,7 +67,7 @@ schema = (p
   | 'Read Schema from GCS' >> ReadFromText('gs://{}/schema.json'.format(BUCKET)))
 ```
 
-and then we pass it to the `ParDo` as a side input so that it's broadcasted to every worker that executes the `DoFn`. In this case, we can use `AsSingleton` as we just one want to supply the schema as a single value:
+and then we pass it to the `ParDo` as a side input so that it's broadcasted to every worker that executes the `DoFn`. In this case, we can use `AsSingleton` as we just want to supply the schema as a single value:
 
 ```python
 (p
