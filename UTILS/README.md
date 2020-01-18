@@ -30,6 +30,7 @@ Each folder contains specific instructions for the corresponding example.
 * **Re-windowing (Python)**: how to apply a global window to elements that are already windowed.
 * **Schema in GCS file (Python)**: how to use a GCS-hosted schema to enrich data in our pipeline.
 * **SHA-256 (Java)**: how to calculate SHA-256 Hash of each file.
+* **Sign GCS Blob (Python)**: how to pass credentials to GCS Client as a side input.
 * **Stop Job (Python)**: how to programmatically stop a Dataflow job using the Python Google API Client Library.
 * **Understanding Wall Time (Java)**: quick idea to visualize wall time.
 * **Which SDK? (Python)**: how to retrieve the list of jobs with specific SDK versions.
