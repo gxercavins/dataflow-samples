@@ -6,6 +6,7 @@ This folder contains some template samples.
 
 Currently, these are the examples available:
 
+* **GCS to Datastore (JavaScript)**: how to parse JSON files to Datastore entities using a UDF.
 * **Escaping commas (Bash)**: how to pass a comma as a parameter when invoking a template.
 * **Global Options (Java + Python)**: access custom options globally when using templates.
 * **Non-standard delimiters (Java)**: how to load data into BigQuery when using multi-byte chars as delimiters.
