@@ -45,7 +45,7 @@ pytz==2018.4
 PyVCF==0.6.8
 pyyaml>=4.2b1
 requests>=2.20.0
-rsa==3.4.2
+rsa==4.7
 six==1.11.0
 typing==3.6.6
 urllib3>=1.24.2
