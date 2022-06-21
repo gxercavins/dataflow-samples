@@ -29,7 +29,7 @@ httplib2==0.11.3
 idna==2.7
 mock==2.0.0
 monotonic==1.5
-numpy==1.15.1
+numpy==1.22.0
 oauth2client==4.1.2
 pbr==4.2.0
 Pillow==6.2.0
