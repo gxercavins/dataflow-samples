@@ -36,7 +36,7 @@ Pillow==6.2.0
 ply==3.8
 proto-google-cloud-datastore-v1==0.90.4
 proto-google-cloud-pubsub-v1==0.15.4
-protobuf==3.6.1
+protobuf==3.18.3
 pyasn1==0.4.4
 pyasn1-modules==0.2.2
 pydot==1.2.4
